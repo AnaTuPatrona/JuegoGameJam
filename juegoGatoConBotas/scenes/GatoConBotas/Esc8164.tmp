@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dveyons2potho"]
+
+[ext_resource type="PackedScene" uid="uid://bqnwldbfko6vm" path="res://juegoGatoConBotas/scenes/GatoConBotas/Piso.tscn" id="1_2x1ou"]
+[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/GatoConBotas/Escenario.gd" id="1_6taxy"]
+[ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://juegoGatoConBotas/scenes/GatoConBotas/GatoConBotas.tscn" id="2_5xvhm"]
+[ext_resource type="PackedScene" uid="uid://bebi1pg05orxg" path="res://juegoGatoConBotas/scenes/GatoConBotas/Enemigo.tscn" id="3_hdd2k"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/characters/GatoConBotas/heart pixel art 48x48.png" id="4_kyeo3"]
+
+[node name="Escenario" type="Node2D"]
+script = ExtResource("1_6taxy")
+
+[node name="GatoConBotas" parent="." instance=ExtResource("2_5xvhm")]
+
+[node name="Piso" parent="." instance=ExtResource("1_2x1ou")]
+position = Vector2(643, 689)
+
+[node name="Enemigo" parent="." instance=ExtResource("3_hdd2k")]
+
+[node name="Corazon" type="Sprite2D" parent="."]
+position = Vector2(39, 38)
+texture = ExtResource("4_kyeo3")
+
+[node name="HeartPixelArt48x49" type="Sprite2D" parent="."]
+position = Vector2(101, 37)
+texture = ExtResource("4_kyeo3")
+
+[node name="HeartPixelArt48x50" type="Sprite2D" parent="."]
+position = Vector2(163, 37)
+texture = ExtResource("4_kyeo3")

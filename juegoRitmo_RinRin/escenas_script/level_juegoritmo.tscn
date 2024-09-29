@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8vmfmqx26mat"]
+
+[ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/level_1.gd" id="1_ip3lu"]
+[ext_resource type="PackedScene" uid="uid://b78s881eoxl85" path="res://juegoRitmo_RinRin/escenas_script/keyobject.tscn" id="2_3477r"]
+[ext_resource type="PackedScene" uid="uid://c2ohiw8rtjqtb" path="res://juegoRitmo_RinRin/escenas_script/pression_area.tscn" id="3_ff0hg"]
+[ext_resource type="AudioStream" uid="uid://crf5ar8ndmtx8" path="res://juegoRitmo_RinRin/assets/Prueba Nightcore para juego.mp3" id="4_3og3n"]
+[ext_resource type="Texture2D" uid="uid://oysvshahniq2" path="res://juegoRitmo_RinRin/assets/modo_miedoyhambre.png" id="4_dy0wv"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ip3lu")
+KeyObject = ExtResource("2_3477r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LifeBar" type="ProgressBar" parent="CanvasLayer"]
+z_index = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 233.0
+offset_bottom = 38.0
+value = 100.0
+show_percentage = false
+
+[node name="ContenedorNotas" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+alignment = 1
+
+[node name="PressionAreas" type="Node2D" parent="CanvasLayer/ContenedorNotas"]
+
+[node name="PressionArea1" parent="CanvasLayer/ContenedorNotas/PressionAreas" instance=ExtResource("3_ff0hg")]
+position = Vector2(-140, 520)
+
+[node name="PressionArea2" parent="CanvasLayer/ContenedorNotas/PressionAreas" instance=ExtResource("3_ff0hg")]
+position = Vector2(0, 520)
+
+[node name="PressionArea3" parent="CanvasLayer/ContenedorNotas/PressionAreas" instance=ExtResource("3_ff0hg")]
+position = Vector2(140, 520)
+
+[node name="FiltroMiedoYHambre" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(575, 322.5)
+scale = Vector2(0.898438, 0.895833)
+texture = ExtResource("4_dy0wv")
+
+[node name="RelojSpawn" type="Timer" parent="."]
+wait_time = 0.65
+autostart = true
+
+[node name="RelojEliminar" type="Timer" parent="."]
+wait_time = 2.2
+one_shot = true
+
+[node name="Musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3og3n")
+autoplay = true
+
+[connection signal="timeout" from="RelojSpawn" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="Musica" to="." method="_on_musica_finished"]

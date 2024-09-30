@@ -2,24 +2,31 @@ extends Node2D
 
 @export var KeyObject: PackedScene
 
+signal musicPlaying()
+signal hasFailed()
+
 var pos: Array=[]
-var _onPlay:bool=true
-var _fade:bool=false
+var _onPlay:bool=true #Guarda si se está reproduciendo la música
+var _fade:bool=false #Guarda si se está desvaneciendo el nivel
 
-var _decreaseSpeed: float
-var cooldown: float
+var _decreaseSpeed: float #Velocidad a la que disminuye la barrita de vida
+var _cooldown: float #Frecuencia de spawn de las notas
+var _musicId #Dirección de donde se reproduce la música
 
-func _init(decr: float=-0.12, cd: float=0.42) -> void:
+func _init(decr: float=-0.15, cd: float=0.42, id="1") -> void:
 	_decreaseSpeed=decr
-	cooldown=cd #funciona muy bien con un cooldown de 0.42 y bpm de 100
+	_cooldown=cd #funciona muy bien con un cooldown de 0.42 y bpm de 100
+	_musicId=load("res://juegoRitmo_RinRin/assets/"+str(id)+".mp3") #acá se carga la dirección
 	
 
 func _ready():
+	_load_music(_musicId)
+	
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.global_position.x)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.global_position.x)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.global_position.x)
 	
-	$RelojSpawn.wait_time=cooldown
+	$RelojSpawn.wait_time=_cooldown
 	
 func _process(delta: float) -> void:
 	if _fade:
@@ -37,6 +44,11 @@ func _spawn():
 	KeyInstance.spawn(int(p.x)%3, p)	#Cambiar el módulo o cambiar los indices k identifican cada pos de flecha
 	add_child(KeyInstance)	
 	_updateLifeBar(KeyInstance.lifeChanged.connect(_updateLifeBar)) #Conexión con la señal k manda la flecha
+	if(!KeyInstance.failingNote.is_connected(_missedNote)):
+		KeyInstance.failingNote.connect(_missedNote)
+
+func _missedNote():
+	hasFailed.emit()
 
 func _updateLifeBar(increment: float):
 	var newValue=$CanvasLayer/LifeBar.value+increment
@@ -50,16 +62,19 @@ func _updateLifeBar(increment: float):
 func _drecreaseAlpha(decrease: float):
 	$CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8=$CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8-decrease
 
-func _on_timer_timeout() -> void:
-	if(_onPlay):
-		_spawn()
+func _load_music(music: AudioStream):
+	$Musica.stream=music
+	$Musica.play()
 
+func _on_timer_timeout() -> void: #De RelojSpawn
+	if(_onPlay):
+		musicPlaying.emit()
+		_spawn()
 
 func _on_musica_finished() -> void:
 	_onPlay=false
 	_fade=true
 	$RelojEliminar.start()
-
 
 #func _on_reloj_eliminar_timeout() -> void:
 	#queue_free()	

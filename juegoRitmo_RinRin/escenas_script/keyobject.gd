@@ -12,6 +12,7 @@ var _exited: bool=false
 var _increment: float
 var _decrement: float
 signal lifeChanged(size)
+signal failingNote()
 
 func _init(vel: float=320, incr: float=10.2, decr: float=-12.5) -> void:
 	velocity=vel #favor que sea multiplo de 60
@@ -40,13 +41,13 @@ func _process(delta: float) -> void:
 func spawn(key:int, pos:Vector2) -> void: #Función encargada de generar flechas
 	position=pos
 	match key:
-		1:
+		2:
 			selected_key=KEY_A
 			rotation_degrees=0 #solo por el placeholder k uso de momento. Cambiar cuando ya tenga una flecha de vdd
-		2:
+		0:
 			selected_key=KEY_D 
 			rotation_degrees=180 #solo por el placeholder k uso de momento. Cambiar cuando ya tenga una flecha de vdd
-		0:
+		1:
 			selected_key=KEY_W 
 			rotation_degrees=90 #solo por el placeholder k uso de momento. Cambiar cuando ya tenga una flecha de vdd
 
@@ -63,5 +64,4 @@ func _on_area_exited(area: Area2D) -> void: #Cuando se salga del área de presi�
 		life_changes(_decrement)
 		_exited=true
 		_presion=false
-		#print("falló") #poner a rinrin cayendose
-		#Poner para k se ponga la flecha como gris y ya no se tenga en cuenta			
+		failingNote.emit()			

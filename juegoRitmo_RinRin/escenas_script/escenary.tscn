@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chvsuccvcdyes"]
+
+[ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/escenary.gd" id="1_2dtbu"]
+[ext_resource type="Texture2D" uid="uid://d0ju2270ec8p2" path="res://juegoRitmo_RinRin/assets/background_rythm.jpg" id="1_bse7o"]
+[ext_resource type="PackedScene" uid="uid://11rxj6plp7kh" path="res://juegoRitmo_RinRin/escenas_script/rinrin.tscn" id="1_u2win"]
+[ext_resource type="PackedScene" uid="uid://c8vmfmqx26mat" path="res://juegoRitmo_RinRin/escenas_script/level_juegoritmo.tscn" id="2_hoesi"]
+
+[node name="Escenary" type="Node2D"]
+script = ExtResource("1_2dtbu")
+overBackground = ExtResource("2_hoesi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Contenedor nivel" type="BoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Rinrin" parent="CanvasLayer/Contenedor nivel" instance=ExtResource("1_u2win")]
+z_index = 4
+position = Vector2(160, 540)
+
+[node name="background" type="Sprite2D" parent="CanvasLayer/Contenedor nivel"]
+position = Vector2(639, 360)
+scale = Vector2(0.741111, 0.741667)
+texture = ExtResource("1_bse7o")
+
+[editable path="CanvasLayer/Contenedor nivel/Rinrin"]

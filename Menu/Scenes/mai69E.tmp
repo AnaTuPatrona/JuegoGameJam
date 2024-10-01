@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwur70apkrdc7"]
+
+[ext_resource type="Texture2D" uid="uid://bh4g1tb2erj5x" path="res://Menu/assets/Placeholders/Biblioteca.webp" id="1_p5581"]
+[ext_resource type="Texture2D" uid="uid://dnt0n62tkhlma" path="res://Menu/assets/Title.png" id="2_xei4p"]
+[ext_resource type="FontFile" uid="uid://dnqc3486uaxqi" path="res://Menu/assets/Gameplay.ttf" id="3_uwjiq"]
+[ext_resource type="Texture2D" uid="uid://qxsmex7xtneq" path="res://Menu/assets/book1.png" id="4_h8goo"]
+[ext_resource type="Script" path="res://Menu/Scenes/libro_1.gd" id="5_oh8bx"]
+[ext_resource type="Texture2D" uid="uid://d3mf854c6pdl7" path="res://Menu/assets/book2.png" id="5_y7ui7"]
+[ext_resource type="Texture2D" uid="uid://iwwydmlt0bj8" path="res://Menu/assets/book3.png" id="6_fxlmd"]
+
+[sub_resource type="FontVariation" id="FontVariation_xj6pp"]
+base_font = ExtResource("3_uwjiq")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p5581")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture = ExtResource("2_xei4p")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = SubResource("FontVariation_xj6pp")
+theme_override_font_sizes/font_size = 33
+text = "Selecciona tu cuento"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Libro1" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_h8goo")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_oh8bx")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_uwjiq")
+theme_override_font_sizes/font_size = 20
+text = "Peter Pan"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Libro2" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_y7ui7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_uwjiq")
+theme_override_font_sizes/font_size = 20
+text = "RinRin Renacuajo"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Libro3" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_fxlmd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_uwjiq")
+theme_override_font_sizes/font_size = 20
+text = "El Gato Con 
+Botas"
+horizontal_alignment = 1

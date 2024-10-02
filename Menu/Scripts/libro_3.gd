@@ -36,7 +36,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	controlbril()
 	controlop()
-
-
-func _on_pressed() -> void:
-	pass # Replace with function body.

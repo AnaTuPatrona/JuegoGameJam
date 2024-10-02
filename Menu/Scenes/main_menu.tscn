@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwur70apkrdc7"]
+[gd_scene load_steps=12 format=3 uid="uid://bwur70apkrdc7"]
 
+[ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_7phrg"]
 [ext_resource type="Texture2D" uid="uid://bh4g1tb2erj5x" path="res://Menu/assets/Placeholders/Biblioteca.webp" id="1_p5581"]
 [ext_resource type="Texture2D" uid="uid://dnt0n62tkhlma" path="res://Menu/assets/Title.png" id="2_xei4p"]
 [ext_resource type="FontFile" uid="uid://dnqc3486uaxqi" path="res://Menu/assets/Gameplay.ttf" id="3_uwjiq"]
@@ -7,6 +8,8 @@
 [ext_resource type="Script" path="res://Menu/Scripts/libro_1.gd" id="5_oh8bx"]
 [ext_resource type="Texture2D" uid="uid://d3mf854c6pdl7" path="res://Menu/assets/book2.png" id="5_y7ui7"]
 [ext_resource type="Texture2D" uid="uid://iwwydmlt0bj8" path="res://Menu/assets/book3.png" id="6_fxlmd"]
+[ext_resource type="Script" path="res://Menu/Scripts/libro_2.gd" id="8_iqj4t"]
+[ext_resource type="Script" path="res://Menu/Scripts/libro_3.gd" id="10_ycv3g"]
 
 [sub_resource type="FontVariation" id="FontVariation_xj6pp"]
 base_font = ExtResource("3_uwjiq")
@@ -18,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7phrg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -92,7 +96,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("5_y7ui7")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_oh8bx")
+script = ExtResource("8_iqj4t")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -113,7 +117,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("6_fxlmd")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_oh8bx")
+script = ExtResource("10_ycv3g")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -125,3 +129,7 @@ theme_override_font_sizes/font_size = 20
 text = "El Gato Con 
 Botas"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Libro1" to="." method="_on_libro_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/Libro2" to="." method="_on_libro_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer3/Libro3" to="." method="_on_libro_3_pressed"]

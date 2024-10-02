@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3d61nu86plia"]
+[gd_scene load_steps=11 format=3 uid="uid://c3d61nu86plia"]
 
+[ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/pato.gd" id="1_ofs18"]
 [ext_resource type="Texture2D" uid="uid://njgu5b7xstpf" path="res://juegoRitmo_RinRin/assets/duck/hit.png" id="1_xpy7i"]
-[ext_resource type="Texture2D" uid="uid://10re7ow5nlrc" path="res://juegoRitmo_RinRin/assets/duck/climb_back.png" id="2_yp7fs"]
 [ext_resource type="Texture2D" uid="uid://bq0qfq1tswrad" path="res://juegoRitmo_RinRin/assets/duck/idle.png" id="3_cumho"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kprgu"]
@@ -11,22 +11,6 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwaxk"]
 atlas = ExtResource("1_xpy7i")
 region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o43n7"]
-atlas = ExtResource("2_yp7fs")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aayly"]
-atlas = ExtResource("2_yp7fs")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfhyx"]
-atlas = ExtResource("2_yp7fs")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylopp"]
-atlas = ExtResource("2_yp7fs")
-region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q31f3"]
 atlas = ExtResource("3_cumho")
@@ -54,24 +38,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fwaxk")
 }],
 "loop": true,
-"name": &"dance1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o43n7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aayly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfhyx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ylopp")
-}],
-"loop": true,
-"name": &"dance2",
+"name": &"dance",
 "speed": 5.0
 }, {
 "frames": [{
@@ -93,10 +60,12 @@ animations = [{
 }]
 
 [node name="Pato" type="Node2D"]
+texture_filter = 1
 scale = Vector2(4, 4)
+script = ExtResource("1_ofs18")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dq6jd")
 animation = &"idle"
-frame = 1
-frame_progress = 0.92951
+frame = 3
+frame_progress = 0.548292

@@ -2,7 +2,7 @@ extends Node2D
 
 var _decreaseSpeed:float=-0.15
 var _cooldown:float=0.48
-var _musicId:float=3
+var _musicId:float=1
 
 var _velocity:float=260
 var _increment:float=10.2
@@ -14,19 +14,25 @@ var escene
 var choice
 @export var dialogBox: PackedScene #Acá se carga o el nodo de los textbox
 
+var contrincante
+@export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	baseEscene()
+	contrincante=_nivel1(1)
+	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 	
 	
 func _process(delta: float)->void:
 	if(escene!=null):
 		if(!escene.musicPlaying.is_connected(_musicOnPlay)):
 			escene.musicPlaying.connect(_musicOnPlay)
+			contrincante.playDance()
 		if(!escene.hasFailed.is_connected(_alFallar)):
 			escene.hasFailed.connect(_alFallar)
 	else:
-		_byDefault()		
+		#$CanvasLayer/ContenedorNivel/Contrincante.remove_child()
+		_byDefault()
+		contrincante.playIdle()		
 
 func _load_escene():
 	escene=overBackground.instantiate()
@@ -69,10 +75,20 @@ func miedoYHambreMode():
 func blindMode():
 	_velocity=380
 	_cooldown=0.52	
-	_decrement=-5
+	_decrement=-7
 	_load_escene()
 	escene.activateBlindMode()
 	escene.biggerPressAreaScale()
+	
+
+#GENERAR NIVELES
+func _nivel1(op:int)->Node:
+	
+	if(op==1):
+		baseEscene()
+	else:
+		lifePunishment()	
+	return contrincantes[0].instantiate()
 
 func _changeSong():
 	_musicId+=1

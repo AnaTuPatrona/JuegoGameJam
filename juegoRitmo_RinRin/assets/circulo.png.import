@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7s2q3pemjhw"
-path="res://.godot/imported/frame.png-989499a584918939c6529176a123d0df.ctex"
+uid="uid://csskr2aog2w0k"
+path="res://.godot/imported/circulo.png-f18786c986fb9b7ca19053407197a1a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://juegoRitmo_RinRin/assets/frame.png"
-dest_files=["res://.godot/imported/frame.png-989499a584918939c6529176a123d0df.ctex"]
+source_file="res://juegoRitmo_RinRin/assets/circulo.png"
+dest_files=["res://.godot/imported/circulo.png-f18786c986fb9b7ca19053407197a1a9.ctex"]
 
 [params]
 

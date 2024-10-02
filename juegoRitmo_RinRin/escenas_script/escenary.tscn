@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://chvsuccvcdyes"]
+[gd_scene load_steps=8 format=3 uid="uid://chvsuccvcdyes"]
 
 [ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/escenary.gd" id="1_2dtbu"]
 [ext_resource type="Texture2D" uid="uid://d0ju2270ec8p2" path="res://juegoRitmo_RinRin/assets/background_rythm.jpg" id="1_bse7o"]
 [ext_resource type="PackedScene" uid="uid://11rxj6plp7kh" path="res://juegoRitmo_RinRin/escenas_script/rinrin.tscn" id="1_u2win"]
 [ext_resource type="PackedScene" uid="uid://c8vmfmqx26mat" path="res://juegoRitmo_RinRin/escenas_script/level_juegoritmo.tscn" id="2_hoesi"]
+[ext_resource type="PackedScene" uid="uid://djbjq0aa1kqck" path="res://juegoRitmo_RinRin/escenas_script/raton.tscn" id="3_4qoqj"]
+[ext_resource type="PackedScene" uid="uid://clhapu5baksea" path="res://juegoRitmo_RinRin/escenas_script/gata.tscn" id="4_e1eob"]
+[ext_resource type="PackedScene" uid="uid://c3d61nu86plia" path="res://juegoRitmo_RinRin/escenas_script/pato.tscn" id="5_6m02p"]
 
 [node name="Escenary" type="Node2D"]
 script = ExtResource("1_2dtbu")
 overBackground = ExtResource("2_hoesi")
+contrincantes = Array[PackedScene]([ExtResource("3_4qoqj"), ExtResource("4_e1eob"), ExtResource("5_6m02p")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -21,6 +25,7 @@ grow_vertical = 2
 alignment = 2
 
 [node name="Contrincante" type="Node2D" parent="CanvasLayer/ContenedorNivel"]
+z_index = 8
 position = Vector2(1120, 540)
 
 [node name="Rinrin" parent="CanvasLayer/ContenedorNivel" instance=ExtResource("1_u2win")]
@@ -28,6 +33,7 @@ z_index = 4
 position = Vector2(160, 540)
 
 [node name="background" type="Sprite2D" parent="CanvasLayer/ContenedorNivel"]
+texture_filter = 1
 position = Vector2(639, 360)
 scale = Vector2(0.741111, 0.741667)
 texture = ExtResource("1_bse7o")

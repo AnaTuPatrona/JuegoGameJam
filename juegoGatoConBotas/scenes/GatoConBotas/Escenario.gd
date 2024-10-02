@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var character = $GatoConBotas
 @onready var enemy = $Enemigo
+const maton_xcn = preload("res://juegoGatoConBotas/scenes/GatoConBotas/Maton.tscn")
 const corazon_scn = preload("res://juegoGatoConBotas/scenes/GatoConBotas/Vida.tscn")
 var corazones_char = Array([], TYPE_OBJECT, "Area2D", null)
 var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)

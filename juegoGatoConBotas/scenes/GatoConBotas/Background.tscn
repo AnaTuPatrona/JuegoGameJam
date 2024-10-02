@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpd0rkacbjgnv"]
+
+[ext_resource type="Texture2D" uid="uid://drtlts736ujpb" path="res://juegoGatoConBotas/assets/background/Background.jpeg" id="1_oddar"]
+
+[node name="Background" type="StaticBody2D"]
+position = Vector2(668, 213)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-22, -131)
+scale = Vector2(1.27393, 1.28369)
+texture = ExtResource("1_oddar")

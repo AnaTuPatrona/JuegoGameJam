@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bebi1pg05orxg"]
+[gd_scene load_steps=11 format=3 uid="uid://c4fn2gwx15o1n"]
 
-[ext_resource type="Texture2D" uid="uid://cukieelxib7g" path="res://juegoGatoConBotas/assets/characters/GatoConBotas/Gato.png" id="1_mrah5"]
-[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/GatoConBotas/Enemigo.gd" id="1_mrati"]
+[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/GatoConBotas/Enemigo.gd" id="1_8ihu7"]
+[ext_resource type="Texture2D" uid="uid://u8n6uwukr8og" path="res://juegoGatoConBotas/assets/characters/Maton/Maton.png" id="2_8i5q0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypba4"]
-size = Vector2(127.5, 229)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmkx"]
+size = Vector2(113, 229)
 
 [sub_resource type="Animation" id="Animation_jlcfp"]
 resource_name = "AtacarDer"
@@ -131,19 +131,17 @@ _data = {
 "RESET": SubResource("Animation_4whsu")
 }
 
-[node name="Enemigo" type="Area2D"]
+[node name="Maton" type="Area2D"]
 position = Vector2(570, 390)
-script = ExtResource("1_mrati")
+script = ExtResource("1_8ihu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_mrah5")
-hframes = 5
-frame = 1
+texture = ExtResource("2_8i5q0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.75, 3.5)
-shape = SubResource("RectangleShape2D_ypba4")
+position = Vector2(13.5, 3.5)
+shape = SubResource("RectangleShape2D_oqmkx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -152,6 +150,3 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
-
-[connection signal="body_entered" from="." to="." method="RecibirGolpe"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

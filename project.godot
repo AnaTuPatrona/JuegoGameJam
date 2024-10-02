@@ -14,6 +14,10 @@ config/name="ColorinColoradoElCuentoHasCambiado"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Transicion="*res://Menu/Scenes/transicion.tscn"
+
 [display]
 
 window/size/viewport_width=1280

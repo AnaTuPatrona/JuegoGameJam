@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwur70apkrdc7"]
+[gd_scene load_steps=15 format=3 uid="uid://bwur70apkrdc7"]
 
 [ext_resource type="Script" path="res://Menu/Scripts/MainMenu.gd" id="1_7phrg"]
 [ext_resource type="Texture2D" uid="uid://bh4g1tb2erj5x" path="res://Menu/assets/Placeholders/Biblioteca.webp" id="1_p5581"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://iwwydmlt0bj8" path="res://Menu/assets/book3.png" id="6_fxlmd"]
 [ext_resource type="Script" path="res://Menu/Scripts/libro_2.gd" id="8_iqj4t"]
 [ext_resource type="Script" path="res://Menu/Scripts/libro_3.gd" id="10_ycv3g"]
+[ext_resource type="AudioStream" uid="uid://ctumbvbtmima1" path="res://Menu/assets/Sounds/Pickles lab.mp3" id="11_mgfuk"]
+[ext_resource type="AudioStream" uid="uid://cb6n6gf6jgeb6" path="res://Menu/assets/Sounds/espada_1.mp3" id="12_uey8w"]
+[ext_resource type="AudioStream" uid="uid://bf1pjkrsr1kot" path="res://Menu/assets/Sounds/la-cuchilla_1.mp3" id="13_egsdq"]
 
 [sub_resource type="FontVariation" id="FontVariation_xj6pp"]
 base_font = ExtResource("3_uwjiq")
@@ -57,7 +60,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = SubResource("FontVariation_xj6pp")
 theme_override_font_sizes/font_size = 33
-text = "Selecciona tu cuento"
+text = "Escoge un cuento
+"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -130,6 +134,21 @@ text = "El Gato Con
 Botas"
 horizontal_alignment = 1
 
+[node name="Bg Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mgfuk")
+volume_db = -8.062
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_uey8w")
+volume_db = -8.062
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_egsdq")
+volume_db = -8.062
+
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer/Libro1" to="." method="_on_libro_1_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Libro1" to="." method="_on_libro_1_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer2/Libro2" to="." method="_on_libro_2_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/Libro2" to="." method="_on_libro_2_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/VBoxContainer3/Libro3" to="." method="_on_libro_3_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer3/Libro3" to="." method="_on_libro_3_pressed"]

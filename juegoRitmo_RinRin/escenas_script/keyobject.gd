@@ -16,17 +16,23 @@ var _increment: float:
 var _decrement: float:
 	get: return _decrement
 	set (value): _decrement=value
+
+var _blindMode: bool=false:
+	set (value): _blindMode=value
 	
 signal lifeChanged(size)
 signal failingNote()
 
-func _init(vel: float=320, incr: float=10.2, decr: float=-12.5) -> void:
+func _init(vel: float=260, incr: float=10.2, decr: float=-12.5) -> void:
 	_velocity=vel #favor que sea multiplo de 60
 	_increment=incr
 	_decrement=decr
 	
 func _process(delta: float) -> void:
 	position.y+=_velocity*delta #Con esta linea se aumenta la posición en y de la flecha con base a la velocidad y delta
+	
+	if(_blindMode):
+		_changeAlpha(3)
 			
 	if _area: #Comprueba si se está en el área de presión o no	
 		if Input.is_key_pressed(selected_key): #Si se presiona la tecla cuando toca
@@ -39,7 +45,7 @@ func _process(delta: float) -> void:
 		if ($Sprite2D.modulate.a8<=0):
 			queue_free()	
 		else:
-			$Sprite2D.modulate.a8=$Sprite2D.modulate.a8-25 									
+			_changeAlpha(25)									
 
 func spawn(key:int, pos:Vector2) -> void: #Función encargada de generar flechas
 	position=pos
@@ -53,6 +59,9 @@ func spawn(key:int, pos:Vector2) -> void: #Función encargada de generar flechas
 		1:
 			selected_key=KEY_W 
 			rotation_degrees=90 #solo por el placeholder k uso de momento. Cambiar cuando ya tenga una flecha de vdd
+
+func _changeAlpha(change):
+	$Sprite2D.modulate.a8=$Sprite2D.modulate.a8-change
 
 func life_changes(size:float):
 	lifeChanged.emit(size)

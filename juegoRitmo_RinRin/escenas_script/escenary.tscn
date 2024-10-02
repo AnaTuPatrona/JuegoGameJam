@@ -20,6 +20,9 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
+[node name="Contrincante" type="Node2D" parent="CanvasLayer/ContenedorNivel"]
+position = Vector2(1120, 540)
+
 [node name="Rinrin" parent="CanvasLayer/ContenedorNivel" instance=ExtResource("1_u2win")]
 z_index = 4
 position = Vector2(160, 540)

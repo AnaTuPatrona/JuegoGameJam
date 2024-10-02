@@ -36,8 +36,9 @@ var _inc: float:
 var _dec: float:
 	set(value): _dec=value
 
+var _blindMode:bool=false
 
-func _init(decr: float=-0.15, cd: float=0.42, id="1") -> void:
+func _init(decr: float=-0.15, cd: float=0.48, id="1") -> void:
 	_decreaseSpeed=decr
 	_cooldown=cd #funciona muy bien con un cooldown de 0.42 y bpm de 100
 	_musicId=int(id)
@@ -52,11 +53,12 @@ func _ready():
 	
 	$RelojSpawn.wait_time=_cooldown
 	
-	_vel=getBaseArrowVeloity()
-	_inc=getBaseLifeBarIncrement()
-	_dec=getBaseLifeBarDecrement()
-	
 func _process(delta: float) -> void:
+	if($CanvasLayer/ContenedorNotas/Controles.modulate.a8>0 ):
+		$CanvasLayer/ContenedorNotas/Controles.modulate.a8-=1.2
+	else:
+		$CanvasLayer/ContenedorNotas/Controles.visible=false
+		
 	if _fade:
 		if (!$CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8<=0 && $RelojEliminar.is_stopped()):
 			_drecreaseAlpha(5.0)
@@ -73,7 +75,11 @@ func _spawn():
 	var p=position
 	p.x=pos[randi()%3]
 	KeyInstance.spawn(int(p.x)%3, p)	#Cambiar el módulo o cambiar los indices k identifican cada pos de flecha
-	add_child(KeyInstance)	
+	add_child(KeyInstance)
+	
+	if(_blindMode): #Si está el modo ciego
+		blindMode(KeyInstance)
+				
 	_updateLifeBar(KeyInstance.lifeChanged.connect(_updateLifeBar)) #Conexión con la señal k manda la flecha
 	if(!KeyInstance.failingNote.is_connected(_missedNote)):
 		KeyInstance.failingNote.connect(_missedNote)
@@ -98,12 +104,15 @@ func _load_music(music: AudioStream):
 	$Musica.play()
 
 func miedoYHambreLayer(): #Modo de juego
-	if($CanvasLayer/FiltroMiedoYHambre.visible==false):
 		$CanvasLayer/FiltroMiedoYHambre.visible=true
-	else:
-		$CanvasLayer/FiltroMiedoYHambre.visible=false	
 
-func _biggerPressAreaScale():
+func activateBlindMode():
+	_blindMode=true
+
+func blindMode(flecha: Area2D):
+	flecha._blindMode=true
+
+func biggerPressAreaScale():
 	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.scale*1.4
 	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.scale*1.4
 	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.scale*1.4
@@ -117,20 +126,3 @@ func _on_musica_finished() -> void:
 	_onPlay=false
 	_fade=true
 	$RelojEliminar.start()
-
-#Funciones para obtener la data de las flechas que se están instanciando
-
-func getBaseArrowVeloity()->float:
-	var KeyInstance = KeyObject.instantiate()
-	var vel=KeyInstance._velocity
-	return vel
-
-func getBaseLifeBarIncrement()->float:
-	var KeyInstance = KeyObject.instantiate()
-	var inc=KeyInstance._increment
-	return inc
-	
-func getBaseLifeBarDecrement()->float:
-	var KeyInstance = KeyObject.instantiate()
-	var dec=KeyInstance._decrement
-	return dec			

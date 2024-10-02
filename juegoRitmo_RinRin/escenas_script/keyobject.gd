@@ -1,26 +1,32 @@
 extends Area2D
 
-var velocity: float: #Es la variable que define que tan rápido va a bajar la flecha
-	get: return velocity #getter
-	set (increment): velocity=velocity+increment #setter
+var _velocity: float: #Es la variable que define que tan rápido va a bajar la flecha
+	get: return _velocity #getter
+	set (value): _velocity=value
 
 var _area: bool=false #Variable que indica si se está entro del área de presión o no
 var selected_key=0 #Variable que guarda el índice de la flecha que se genera
 var _presion: bool=false
 var _exited: bool=false
 
-var _increment: float
-var _decrement: float
+var _increment: float:
+	get: return _increment
+	set (value): _increment=value
+	
+var _decrement: float:
+	get: return _decrement
+	set (value): _decrement=value
+	
 signal lifeChanged(size)
 signal failingNote()
 
 func _init(vel: float=320, incr: float=10.2, decr: float=-12.5) -> void:
-	velocity=vel #favor que sea multiplo de 60
+	_velocity=vel #favor que sea multiplo de 60
 	_increment=incr
 	_decrement=decr
 	
 func _process(delta: float) -> void:
-	position.y+=velocity*delta #Con esta linea se aumenta la posición en y de la flecha con base a la velocidad y delta
+	position.y+=_velocity*delta #Con esta linea se aumenta la posición en y de la flecha con base a la velocidad y delta
 			
 	if _area: #Comprueba si se está en el área de presión o no	
 		if Input.is_key_pressed(selected_key): #Si se presiona la tecla cuando toca
@@ -28,9 +34,6 @@ func _process(delta: float) -> void:
 			_presion=true
 			life_changes(_increment)
 			queue_free()
-			"""elif Input.is_key_pressed(!selected_key):
-			print("hola")
-			$EfectosSonido.play()"""
 	
 	elif _exited:		
 		if ($Sprite2D.modulate.a8<=0):

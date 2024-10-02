@@ -9,24 +9,52 @@ var pos: Array=[]
 var _onPlay:bool=true #Guarda si se está reproduciendo la música
 var _fade:bool=false #Guarda si se está desvaneciendo el nivel
 
-var _decreaseSpeed: float #Velocidad a la que disminuye la barrita de vida
-var _cooldown: float #Frecuencia de spawn de las notas
-var _musicId #Dirección de donde se reproduce la música
+#Variables de la barra de vida y más
+
+var _decreaseSpeed: float: #Velocidad a la que disminuye la barrita de vida
+	get: return _decreaseSpeed
+	set (value): _decreaseSpeed=value
+	
+var _cooldown: float: #Frecuencia de spawn de las notas
+	get: return _cooldown
+	set (value): _cooldown=value
+		
+var _musicId: int: #Nombre/Indice de la canción
+	get: return _musicId
+	set (value): _musicId=value
+
+var _musicDirection #Dirección de donde se reproduce la música
+
+#Variables de las flechas
+
+var _vel: float:
+	set(value): _vel=value
+	
+var _inc: float:
+	set(value): _inc=value
+	
+var _dec: float:
+	set(value): _dec=value
+
 
 func _init(decr: float=-0.15, cd: float=0.42, id="1") -> void:
 	_decreaseSpeed=decr
 	_cooldown=cd #funciona muy bien con un cooldown de 0.42 y bpm de 100
-	_musicId=load("res://juegoRitmo_RinRin/assets/"+str(id)+".mp3") #acá se carga la dirección
+	_musicId=int(id)
 	
 
 func _ready():
-	_load_music(_musicId)
-	
+	_musicDirection=load("res://juegoRitmo_RinRin/assets/"+str(_musicId)+".mp3") #acá se carga la dirección
+	_load_music(_musicDirection)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.global_position.x)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.global_position.x)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.global_position.x)
 	
 	$RelojSpawn.wait_time=_cooldown
+	
+	_vel=getBaseArrowVeloity()
+	_inc=getBaseLifeBarIncrement()
+	_dec=getBaseLifeBarDecrement()
 	
 func _process(delta: float) -> void:
 	if _fade:
@@ -39,6 +67,9 @@ func _process(delta: float) -> void:
 	
 func _spawn():
 	var KeyInstance = KeyObject.instantiate()
+	KeyInstance._velocity=_vel
+	KeyInstance._increment=_inc
+	KeyInstance._decrement=_dec
 	var p=position
 	p.x=pos[randi()%3]
 	KeyInstance.spawn(int(p.x)%3, p)	#Cambiar el módulo o cambiar los indices k identifican cada pos de flecha
@@ -66,6 +97,17 @@ func _load_music(music: AudioStream):
 	$Musica.stream=music
 	$Musica.play()
 
+func miedoYHambreLayer(): #Modo de juego
+	if($CanvasLayer/FiltroMiedoYHambre.visible==false):
+		$CanvasLayer/FiltroMiedoYHambre.visible=true
+	else:
+		$CanvasLayer/FiltroMiedoYHambre.visible=false	
+
+func _biggerPressAreaScale():
+	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea1.scale*1.4
+	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.scale*1.4
+	$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.scale=$CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.scale*1.4
+
 func _on_timer_timeout() -> void: #De RelojSpawn
 	if(_onPlay):
 		musicPlaying.emit()
@@ -76,6 +118,19 @@ func _on_musica_finished() -> void:
 	_fade=true
 	$RelojEliminar.start()
 
-#func _on_reloj_eliminar_timeout() -> void:
-	#queue_free()	
+#Funciones para obtener la data de las flechas que se están instanciando
+
+func getBaseArrowVeloity()->float:
+	var KeyInstance = KeyObject.instantiate()
+	var vel=KeyInstance._velocity
+	return vel
+
+func getBaseLifeBarIncrement()->float:
+	var KeyInstance = KeyObject.instantiate()
+	var inc=KeyInstance._increment
+	return inc
 	
+func getBaseLifeBarDecrement()->float:
+	var KeyInstance = KeyObject.instantiate()
+	var dec=KeyInstance._decrement
+	return dec			

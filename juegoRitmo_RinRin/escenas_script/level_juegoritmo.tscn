@@ -10,9 +10,10 @@ script = ExtResource("1_ip3lu")
 KeyObject = ExtResource("2_3477r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
 
 [node name="LifeBar" type="ProgressBar" parent="CanvasLayer"]
-z_index = 1
+z_index = 2
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 233.0
@@ -40,8 +41,8 @@ position = Vector2(140, 580)
 
 [node name="FiltroMiedoYHambre" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-position = Vector2(575, 322.5)
-scale = Vector2(0.898438, 0.895833)
+position = Vector2(641, 359)
+scale = Vector2(1.005, 1)
 texture = ExtResource("4_dy0wv")
 
 [node name="RelojSpawn" type="Timer" parent="."]

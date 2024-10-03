@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmpbtfd5s75ny"]
+
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/boat.gd" id="1_x8ujj"]
+[ext_resource type="Texture2D" uid="uid://dfmbe2drvkefi" path="res://JuegoPeterPan/assets/Sprites/Pirate Ship (Idle) PREVIEW.png" id="2_n8vc5"]
+[ext_resource type="Texture2D" uid="uid://b2wvmwi4b2vuo" path="res://JuegoPeterPan/assets/Sprites/water.png" id="3_kua2k"]
+
+[sub_resource type="Animation" id="Animation_ot0jg"]
+resource_name = "waves"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_1cgfp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk1ba"]
+_data = {
+"RESET": SubResource("Animation_1cgfp"),
+"waves": SubResource("Animation_ot0jg")
+}
+
+[node name="Boat" type="Node2D"]
+script = ExtResource("1_x8ujj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_n8vc5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-30, 67.5)
+scale = Vector2(1.78125, 0.96875)
+texture = ExtResource("3_kua2k")
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_dk1ba")
+}

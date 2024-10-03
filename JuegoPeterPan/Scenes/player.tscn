@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://djb6qjik7pnr5"]
+
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/player.gd" id="1_on7sf"]
+[ext_resource type="Texture2D" uid="uid://cycj6m0qx4f8e" path="res://JuegoPeterPan/assets/Sprites/Peter Pan edited.png" id="1_uitt5"]
+[ext_resource type="PackedScene" uid="uid://hqe8j68m8cur" path="res://JuegoPeterPan/Scenes/sparkling.tscn" id="3_gu6p4"]
+
+[sub_resource type="Animation" id="Animation_ww1s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xjdau"]
+resource_name = "fly"
+length = 0.125
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rxary"]
+_data = {
+"RESET": SubResource("Animation_ww1s0"),
+"fly": SubResource("Animation_xjdau")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dba2s"]
+size = Vector2(39.6, 20.7143)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_on7sf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_uitt5")
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rxary")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -8.5)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_dba2s")
+
+[node name="Sparkling" parent="." instance=ExtResource("3_gu6p4")]
+amount = 13
+lifetime = 30.27
+speed_scale = 15.57
+spread = 18.66
+scale_amount_min = 7.0
+scale_amount_max = 9.0
+color = Color(1, 1, 0.176471, 1)

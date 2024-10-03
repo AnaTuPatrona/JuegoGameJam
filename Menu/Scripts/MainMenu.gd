@@ -14,7 +14,9 @@ func _process(delta: float) -> void:
 
 
 func _on_libro_1_pressed() -> void:
-	pass # Replace with function body.
+	sound_selected.play()
+	Transicion.cambiar_escena("res://JuegoPeterPan/Scenes/main_scene.tscn")
+
 
 
 func _on_libro_3_pressed() -> void:

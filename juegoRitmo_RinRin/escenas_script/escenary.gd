@@ -18,7 +18,7 @@ var contrincante
 @export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	contrincante=_nivel2(false)
+	contrincante=_nivel1(true)
 	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 	
 	

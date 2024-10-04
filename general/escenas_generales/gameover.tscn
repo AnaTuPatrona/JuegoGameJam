@@ -9,5 +9,6 @@ z_index = 50
 script = ExtResource("1_ceu7u")
 
 [node name="imagen" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(640, 360)
 texture = ExtResource("1_nu2bb")

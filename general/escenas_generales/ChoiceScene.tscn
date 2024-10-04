@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg464yjvuqoos"]
+[gd_scene load_steps=10 format=3 uid="uid://bg464yjvuqoos"]
 
 [ext_resource type="FontFile" uid="uid://dnqc3486uaxqi" path="res://Menu/assets/Gameplay.ttf" id="1_1tui8"]
 [ext_resource type="Script" path="res://general/escenas_generales/choice_scene.gd" id="1_4th50"]
 [ext_resource type="Script" path="res://general/escenas_generales/opcion_1.gd" id="2_2u46o"]
+[ext_resource type="FontFile" uid="uid://dq552ue8mpol3" path="res://general/assets_generales/PressStart2P-Regular.ttf" id="2_8tbkq"]
 [ext_resource type="Script" path="res://general/escenas_generales/opcion_2.gd" id="3_a7snh"]
 
 [sub_resource type="Animation" id="Animation_xacr2"]
@@ -127,8 +128,8 @@ custom_minimum_size = Vector2(1000, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 15
-theme_override_fonts/normal_font = ExtResource("1_1tui8")
-theme_override_font_sizes/normal_font_size = 33
+theme_override_fonts/normal_font = ExtResource("2_8tbkq")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "[center]Esto es una prueba[/center]"
 visible_characters = 0

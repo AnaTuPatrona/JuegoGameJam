@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bebi1pg05orxg"]
 
 [ext_resource type="Script" path="res://juegoGatoConBotas/scenes/characters/Enemigo.gd" id="1_mrati"]
-[ext_resource type="Texture2D" uid="uid://bc4vy1mthjumh" path="res://juegoGatoConBotas/assets/characters/Rey/ReySpriteSheet.png" id="2_wwu3x"]
+[ext_resource type="Texture2D" uid="uid://bc4vy1mthjumh" path="res://JuegoGatoConBotas/assets/characters/Rey/ReySpriteSheet.png" id="2_wwu3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypba4"]
 size = Vector2(111, 229)
@@ -238,7 +238,7 @@ _data = {
 "RESET": SubResource("Animation_4whsu")
 }
 
-[node name="Enemigo" type="Area2D"]
+[node name="Rey" type="Area2D"]
 position = Vector2(640, 300)
 script = ExtResource("1_mrati")
 

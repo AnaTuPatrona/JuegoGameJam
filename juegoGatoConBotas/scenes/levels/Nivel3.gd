@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var character = $GatoConBotas
-@onready var enemy = $Rey
+@onready var enemy = $Ogro
 @onready var timer = $Timer
 @export var GameOver: PackedScene
 
@@ -41,7 +41,11 @@ func _process(delta: float) -> void:
 		character.queue_free()
 	if enemy == null:
 		print("Ganaste")
-		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel2.tscn")
+		#Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel1.tscn")
+		loseScreen=GameOver.instantiate()
+		add_sibling(loseScreen)
+		loseScreen.activate()
+		queue_free()
 	elif enemy.vidas == 0:
 		enemy.queue_free()
 

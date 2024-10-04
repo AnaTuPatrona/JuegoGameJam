@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpd0rkacbjgnv"]
+
+[ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/extras/Background.gd" id="1_jg5ao"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idgss"]
+
+[node name="Background" type="StaticBody2D"]
+position = Vector2(668, 213)
+script = ExtResource("1_jg5ao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, 15)
+scale = Vector2(1.434, 1.445)
+texture = SubResource("CompressedTexture2D_idgss")

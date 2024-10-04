@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://d302vbltunpu8"]
+
+[ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/levels/Nivel2.gd" id="1_kwceo"]
+[ext_resource type="PackedScene" uid="uid://bpd0rkacbjgnv" path="res://JuegoGatoConBotas/scenes/extras/Background.tscn" id="2_ogfjh"]
+[ext_resource type="PackedScene" uid="uid://cy7nqj5qd48ev" path="res://general/escenas_generales/gameover.tscn" id="2_v80xf"]
+[ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://JuegoGatoConBotas/scenes/characters/GatoConBotas.tscn" id="4_h76q8"]
+[ext_resource type="PackedScene" uid="uid://c4fn2gwx15o1n" path="res://JuegoGatoConBotas/scenes/characters/Maton.tscn" id="5_rbmn1"]
+
+[node name="Nivel2" type="Node2D"]
+script = ExtResource("1_kwceo")
+GameOver = ExtResource("2_v80xf")
+
+[node name="Background" parent="." instance=ExtResource("2_ogfjh")]
+position = Vector2(538, 213)
+
+[node name="Maton" parent="." instance=ExtResource("5_rbmn1")]
+
+[node name="GatoConBotas" parent="." instance=ExtResource("4_h76q8")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="perder_vida" from="Maton" to="." method="PerderVidaEnemy"]
+[connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

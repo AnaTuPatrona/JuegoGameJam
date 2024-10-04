@@ -1,22 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dveyons2potho"]
+[gd_scene load_steps=6 format=3 uid="uid://dveyons2potho"]
 
 [ext_resource type="Script" path="res://juegoGatoConBotas/scenes/levels/Nivel1.gd" id="1_bh7aj"]
-[ext_resource type="PackedScene" uid="uid://bpd0rkacbjgnv" path="res://juegoGatoConBotas/scenes/extras/Background_Palacio.tscn" id="2_vi3m2"]
-[ext_resource type="PackedScene" uid="uid://bebi1pg05orxg" path="res://juegoGatoConBotas/scenes/characters/Rey.tscn" id="3_0bcre"]
-[ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://juegoGatoConBotas/scenes/characters/GatoConBotas.tscn" id="4_1pmua"]
+[ext_resource type="PackedScene" uid="uid://cy7nqj5qd48ev" path="res://general/escenas_generales/gameover.tscn" id="2_py8ci"]
+[ext_resource type="PackedScene" uid="uid://bpd0rkacbjgnv" path="res://JuegoGatoConBotas/scenes/extras/Background.tscn" id="2_vi3m2"]
+[ext_resource type="PackedScene" uid="uid://bebi1pg05orxg" path="res://JuegoGatoConBotas/scenes/characters/Rey.tscn" id="3_0bcre"]
+[ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://JuegoGatoConBotas/scenes/characters/GatoConBotas.tscn" id="4_1pmua"]
 
 [node name="Nivel1" type="Node2D"]
 script = ExtResource("1_bh7aj")
+GameOver = ExtResource("2_py8ci")
 
 [node name="Background" parent="." instance=ExtResource("2_vi3m2")]
-position = Vector2(538, 213)
+position = Vector2(520, 177)
 
-[node name="Enemigo" parent="." instance=ExtResource("3_0bcre")]
+[node name="Rey" parent="." instance=ExtResource("3_0bcre")]
 
 [node name="GatoConBotas" parent="." instance=ExtResource("4_1pmua")]
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="perder_vida" from="Enemigo" to="." method="PerderVidaEnemy"]
+[connection signal="perder_vida" from="Rey" to="." method="PerderVidaEnemy"]
 [connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

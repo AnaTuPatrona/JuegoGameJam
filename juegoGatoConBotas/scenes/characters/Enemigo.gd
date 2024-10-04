@@ -32,11 +32,12 @@ func _on_timer_timeout() -> void:
 				#der = false
 				#atacando_izq = false
 				#print("Volver")
-			if num >5: #Mover izq
+			if num >=4: #Mover izq
 				animation_player.play("MoverIzq")
 				izq = true
 				der = false
 				atacando_izq = false
+				atacando_der = false
 				#print("Mover Izquierda")
 		elif not atacando_izq:
 			num = rnd.randi_range(0,10)
@@ -45,12 +46,14 @@ func _on_timer_timeout() -> void:
 				izq = false
 				der = false
 				atacando_izq = false
+				atacando_der = false
 				#print("Volver")
 			if num >5: #Atacar izq
 				animation_player.play("AtacarIzq")
 				izq = true
 				der = false
 				atacando_izq = true
+				atacando_der = false
 				#print("Atacar Izquierda")
 	elif der and not atacando_izq:
 		#print("Derecha")
@@ -62,11 +65,12 @@ func _on_timer_timeout() -> void:
 				#der = false
 				#atacando_der = false
 				#print("Volver")
-			if num >5: #Mover der
+			if num >=4: #Mover der
 				animation_player.play("MoverDer")
 				izq = false
 				der = true
 				atacando_der = false
+				atacando_izq = false
 				#print("Mover Derecha")
 		elif not atacando_der:
 			num = rnd.randi_range(0,10)
@@ -75,12 +79,14 @@ func _on_timer_timeout() -> void:
 				izq = false
 				der = false
 				atacando_der = false
+				atacando_izq = false
 				#print("Volver")
 			if num >5: #Atacar der
 				animation_player.play("AtacarDer")
 				izq = false
 				der = true
 				atacando_der = true
+				atacando_izq = false
 				#print("Atacar Derecha")
 
 

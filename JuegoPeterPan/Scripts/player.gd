@@ -6,6 +6,7 @@ var particles = preload("res://JuegoPeterPan/Scenes/explosion.tscn")
 
 signal spawn_bullet_particles(particles,location)
 signal reduce_life
+signal game_over
 
 func _process(delta: float) -> void:
 	global_position.y = lerp(global_position.y,get_viewport().get_mouse_position().y,0.1)
@@ -29,7 +30,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			opacidad(1.0)
 			await get_tree().create_timer(0.2).timeout
 		$AnimationPlayer.play("hit2")
-		await get_tree().create_timer(1.0).timeout
-		$AnimationPlayer.play("fly")
-		if life >= 0:
+		if life > 0:
 			life = life -1
+			await get_tree().create_timer(1.0).timeout
+			$AnimationPlayer.play("fly")
+		else:
+			emit_signal("game_over")

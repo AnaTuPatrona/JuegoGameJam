@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqxaj4mn128mv"]
+[gd_scene load_steps=14 format=3 uid="uid://cqxaj4mn128mv"]
 
 [ext_resource type="PackedScene" uid="uid://djb6qjik7pnr5" path="res://JuegoPeterPan/Scenes/player.tscn" id="1_f1vpl"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/main_scene.gd" id="1_hkhde"]
@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bxgiejhct7qlw" path="res://JuegoPeterPan/Scenes/bullet_spawner.tscn" id="7_xv6un"]
 [ext_resource type="AudioStream" uid="uid://73sq3sxicxf4" path="res://JuegoPeterPan/assets/music/windmill v2.mp3" id="8_33ppv"]
 [ext_resource type="PackedScene" uid="uid://cmpbtfd5s75ny" path="res://JuegoPeterPan/Scenes/boat.tscn" id="9_07wjs"]
-[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/characters/GatoConBotas/heart pixel art 48x48.png" id="10_iiig6"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="10_iiig6"]
 [ext_resource type="Texture2D" uid="uid://bqq7kuuu5ia4u" path="res://JuegoPeterPan/assets/Sprites/peter_pan_portrait-removebg.png" id="11_vbpd8"]
+[ext_resource type="AudioStream" uid="uid://hnuelt7hgn4g" path="res://general/assets_generales/scream.mp3" id="13_uymyc"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_hkhde")
@@ -95,6 +96,10 @@ volume_db = -4.837
 position = Vector2(1011, 530)
 scale = Vector2(0.8, 0.8)
 
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_uymyc")
+
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="reduce_life" from="Player" to="GUI" method="_on_player_reduce_life"]
 [connection signal="spawn_bullet_particles" from="Player" to="." method="_on_player_spawn_bullet_particles"]
 [connection signal="spawn_bullet" from="BulletSpawner" to="." method="_on_bullet_spawner_spawn_bullet"]

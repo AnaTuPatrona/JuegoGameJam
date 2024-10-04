@@ -19,3 +19,9 @@ func _on_player_spawn_bullet_particles(particles: Variant, location: Variant) ->
 	add_child(explosion_instance)
 	explosion_instance.global_position = location
 	
+
+
+func _on_player_game_over() -> void:
+	$Scream.play()
+	
+	Transicion.game_over()

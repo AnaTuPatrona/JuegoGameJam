@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 	position.y+=_velocity*delta #Con esta linea se aumenta la posición en y de la flecha con base a la velocidad y delta
 	
 	if(_blindMode):
-		_changeAlpha(3)
+		_changeAlpha(3.001)
 			
 	if _area: #Comprueba si se está en el área de presión o no	
 		if Input.is_key_pressed(selected_key): #Si se presiona la tecla cuando toca

@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var KeyObject: PackedScene
+@export var GameOver: PackedScene
+
+var loseScreen
 
 signal musicPlaying()
 signal hasFailed()
@@ -8,6 +11,8 @@ signal hasFailed()
 var pos: Array=[]
 var _onPlay:bool=true #Guarda si se está reproduciendo la música
 var _fade:bool=false #Guarda si se está desvaneciendo el nivel
+
+var _gameOver:bool=false
 
 #Variables de la barra de vida y más
 
@@ -54,18 +59,25 @@ func _ready():
 	$RelojSpawn.wait_time=_cooldown
 	
 func _process(delta: float) -> void:
-	if($CanvasLayer/ContenedorNotas/Controles.modulate.a8>0 ):
+	if($CanvasLayer/ContenedorNotas/Controles.modulate.a8>0):
 		$CanvasLayer/ContenedorNotas/Controles.modulate.a8-=1.2
 	else:
 		$CanvasLayer/ContenedorNotas/Controles.visible=false
 		
-	if _fade:
+	if (_fade && !_gameOver):
 		if (!$CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8<=0 && $RelojEliminar.is_stopped()):
 			_drecreaseAlpha(5.0)
 		elif($CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8<=0):
 			queue_free()					
-	else:
-		_updateLifeBar(_decreaseSpeed) #va quitandole vida a la barra constantemente		 	
+	elif(!_gameOver):
+		_updateLifeBar(_decreaseSpeed) #va quitandole vida a la barra constantemente
+		
+	elif(_gameOver):
+		loseScreen=GameOver.instantiate()
+		add_sibling(loseScreen)
+		loseScreen.activate()
+		queue_free()
+					 	
 	
 func _spawn():
 	var KeyInstance = KeyObject.instantiate()
@@ -91,8 +103,10 @@ func _updateLifeBar(increment: float):
 	var newValue=$CanvasLayer/LifeBar.value+increment
 	if(newValue>100):
 		$CanvasLayer/LifeBar.value=100
-	elif(newValue<0):
-		$CanvasLayer/LifeBar.value=0	
+	elif(newValue<=0):
+		$CanvasLayer/LifeBar.value=0
+		_gameOver=true
+		$RelojSpawn.stop()
 	else:
 		$CanvasLayer/LifeBar.value=newValue
 		

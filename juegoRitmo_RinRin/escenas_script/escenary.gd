@@ -18,7 +18,7 @@ var contrincante
 @export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	contrincante=_nivel1(1)
+	contrincante=_nivel1(false)
 	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 	
 	
@@ -30,7 +30,7 @@ func _process(delta: float)->void:
 		if(!escene.hasFailed.is_connected(_alFallar)):
 			escene.hasFailed.connect(_alFallar)
 	else:
-		#$CanvasLayer/ContenedorNivel/Contrincante.remove_child()
+		#$CanvasLayer/ContenedorNivel/Contrincante.remove_child(contrincante)
 		_byDefault()
 		contrincante.playIdle()		
 
@@ -52,46 +52,74 @@ func baseEscene():
 
 #incorrecta, pregunta 1
 func lifePunishment():
-	_decreaseSpeed=-0.23
+	_decreaseSpeed=-0.32
 	_decrement=-16.7
 	_load_escene()
 
 #correcta, pregunta 3
 func risasYSonrisasMode():
+	_decreaseSpeed=-0.15
 	_velocity=320
 	_cooldown=0.42
 	_increment=15
+	_decrement=-12.5
 	_load_escene()
 
 #incorrecta, pregunta 2
 func miedoYHambreMode():
-	_decreaseSpeed=-0.18
-	_velocity=320
+	_decreaseSpeed=-0.23
+	_velocity=380
 	_cooldown=0.42
+	_decrement=-14.5
+	_increment=10.2
 	_load_escene()
 	escene.miedoYHambreLayer()
 	
+#correcta, pregunta 3
+func inmortalMode():
+	_velocity=680
+	_cooldown=0.42	
+	_decrement=0
+	_increment=10.2
+	_decreaseSpeed=-0.35
+	_load_escene()	
+	
 #incorrecta, pregunta 3
 func blindMode():
+	_decreaseSpeed=-0.18
 	_velocity=380
 	_cooldown=0.52	
-	_decrement=-7
+	_decrement=-6
+	_increment=18.5
 	_load_escene()
 	escene.activateBlindMode()
 	escene.biggerPressAreaScale()
 	
 
 #GENERAR NIVELES
-func _nivel1(op:int)->Node:
-	
-	if(op==1):
+func _nivel1(op:bool)->Node:
+	_musicId=1
+	if(op==true):
 		baseEscene()
 	else:
 		lifePunishment()	
 	return contrincantes[0].instantiate()
-
-func _changeSong():
-	_musicId+=1
+	
+func _nivel2(op:bool)->Node:
+	_musicId=2
+	if(op==true):
+		risasYSonrisasMode()
+	else:
+		miedoYHambreMode()	
+	return contrincantes[1].instantiate()	
+	
+func _nivel3(op:bool)->Node:
+	_musicId=3
+	if(op==true):
+		inmortalMode()
+	else:
+		blindMode()	
+	return contrincantes[2].instantiate()		
 	
 func _byDefault():
 	$"CanvasLayer/ContenedorNivel/Rinrin".playIdle()

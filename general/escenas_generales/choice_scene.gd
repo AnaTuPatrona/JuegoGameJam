@@ -16,7 +16,6 @@ signal opcion2
 func show_animation() -> void: #animacion de entrada
 	anim.play("show")
 	await(anim.animation_finished)
-	box.visible = true
 	 
 func hide_animation() -> void: #animacion de salida
 	box.visible = false
@@ -25,6 +24,7 @@ func hide_animation() -> void: #animacion de salida
 
 func display_text(textin: String) -> void: #funcion para mostrar texto, solo recibe el texto como parametro
 	container.visible = false
+	box.visible = true
 	label.text = ("[center]" + textin + "[/center]")
 	anim.play("display_text" )
 	await(anim.animation_finished)
@@ -41,6 +41,7 @@ func display_option(textin: String, option1: String, option2: String) -> void: #
 	button1.text = option1
 	button2.text = option2
 	container.visible = true
+	box.visible = true
 	label.text = ("[center]" + textin + "[/center]")
 	anim.play("display_text")
 	await(anim.animation_finished)
@@ -55,7 +56,6 @@ func display_optionV2(textin: String, options: Dictionary) -> void: #funcion par
 	await(anim.animation_finished)	
 
 func _buscarTrue(answer: String) -> bool:
-	print(_choiceDictionary.find_key(answer))
 	return _choiceDictionary.find_key(answer)
 
 func _ready() -> void:

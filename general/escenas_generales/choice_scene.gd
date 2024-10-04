@@ -7,6 +7,9 @@ extends Control
 @onready var container = $CanvasLayer/BoxContainer/VBoxContainer/HBoxContainer
 @onready var anim = $CanvasLayer/AnimationPlayer
 @onready var box = $CanvasLayer/BoxContainer
+
+var _choiceDictionary={}
+
 signal opcion1
 signal opcion2
 
@@ -25,6 +28,14 @@ func display_text(textin: String) -> void: #funcion para mostrar texto, solo rec
 	label.text = ("[center]" + textin + "[/center]")
 	anim.play("display_text" )
 	await(anim.animation_finished)
+
+func set_question(texto: String, option1: String, option2: String):
+	await(show_animation())
+	await(display_option(texto, option1, option2))
+
+func set_questionV2(texto: String, options: Dictionary):
+	await(show_animation())
+	await(display_optionV2(texto, options))
 	
 func display_option(textin: String, option1: String, option2: String) -> void: #funcion para mostrar panel de desiciones, texto y ambas opciones como parametro
 	button1.text = option1
@@ -33,19 +44,33 @@ func display_option(textin: String, option1: String, option2: String) -> void: #
 	label.text = ("[center]" + textin + "[/center]")
 	anim.play("display_text")
 	await(anim.animation_finished)
+	
+func display_optionV2(textin: String, options: Dictionary) -> void: #funcion para mostrar panel de desiciones, texto y ambas opciones como parametro
+	button1.text = options.get(true)
+	button2.text = options.get(false)
+	_choiceDictionary=options
+	container.visible = true
+	label.text = ("[center]" + textin + "[/center]")
+	anim.play("display_text")
+	await(anim.animation_finished)	
+
+func _buscarTrue(answer: String) -> bool:
+	return _choiceDictionary.find_key(answer)
 
 func _ready() -> void:
-	pass
+	$CanvasLayer.layer=3
 
 
 func _process(delta: float) -> void:
 	pass
 
 
-func _on_opcion_1_pressed() -> void: #emite señal para el botón 1 seleccionado
+func _on_opcion_1_pressed() -> bool: #emite señal para el botón 1 seleccionado
 	emit_signal("opcion1")
+	return _buscarTrue($CanvasLayer/BoxContainer/VBoxContainer/HBoxContainer/opcion1.text)
 	
 
 
-func _on_opcion_2_pressed() -> void: #emite señal para el botón 2 seleccionado
+func _on_opcion_2_pressed() -> bool: #emite señal para el botón 2 seleccionado
 	emit_signal("opcion2")
+	return _buscarTrue($CanvasLayer/BoxContainer/VBoxContainer/HBoxContainer/opcion2.text)

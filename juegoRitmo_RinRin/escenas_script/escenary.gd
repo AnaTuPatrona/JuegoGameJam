@@ -18,8 +18,9 @@ var contrincante
 @export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	contrincante=_nivel1(true)
+	contrincante=_nivel3(false)
 	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
+	#ChoiceScene.startText("hola")
 	
 	
 func _process(delta: float)->void:
@@ -30,7 +31,6 @@ func _process(delta: float)->void:
 		if(!escene.hasFailed.is_connected(_alFallar)):
 			escene.hasFailed.connect(_alFallar)
 	else:
-		#$CanvasLayer/ContenedorNivel/Contrincante.remove_child(contrincante)
 		_byDefault()
 		contrincante.playIdle()		
 

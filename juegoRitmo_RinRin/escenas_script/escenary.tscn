@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3d61nu86plia" path="res://juegoRitmo_RinRin/escenas_script/pato.tscn" id="5_6m02p"]
 
 [node name="Escenary" type="Node2D"]
+z_index = -8
 script = ExtResource("1_2dtbu")
 overBackground = ExtResource("2_hoesi")
 contrincantes = Array[PackedScene]([ExtResource("3_4qoqj"), ExtResource("4_e1eob"), ExtResource("5_6m02p")])
@@ -33,6 +34,7 @@ z_index = 4
 position = Vector2(160, 540)
 
 [node name="background" type="Sprite2D" parent="CanvasLayer/ContenedorNivel"]
+z_index = -10
 texture_filter = 1
 position = Vector2(639, 360)
 scale = Vector2(0.741111, 0.741667)

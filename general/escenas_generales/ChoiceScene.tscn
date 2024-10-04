@@ -5,21 +5,6 @@
 [ext_resource type="Script" path="res://general/escenas_generales/opcion_1.gd" id="2_2u46o"]
 [ext_resource type="Script" path="res://general/escenas_generales/opcion_2.gd" id="3_a7snh"]
 
-[sub_resource type="Animation" id="Animation_oo6hs"]
-resource_name = "display_text"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BoxContainer/VBoxContainer/HBoxContainer2/RichTextLabel:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_xacr2"]
 length = 0.001
 tracks/0/type = "value"
@@ -47,6 +32,21 @@ tracks/1/keys = {
 "values": [Vector2(0, 800)]
 }
 
+[sub_resource type="Animation" id="Animation_oo6hs"]
+resource_name = "display_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/VBoxContainer/HBoxContainer2/RichTextLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="Animation" id="Animation_t5kv4"]
 resource_name = "show"
 tracks/0/type = "value"
@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="ChoiceScene" type="Control"]
+z_index = 60
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

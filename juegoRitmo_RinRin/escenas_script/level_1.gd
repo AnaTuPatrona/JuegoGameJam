@@ -56,6 +56,9 @@ func _ready():
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea2.global_position.x)
 	pos.append($CanvasLayer/ContenedorNotas/PressionAreas/PressionArea3.global_position.x)
 	
+	$CanvasLayer/FiltroInmortal/ColorLayer.pause()
+	$CanvasLayer/FiltroBlind/ColorLayer.pause()
+	
 	$RelojSpawn.wait_time=_cooldown
 	
 func _process(delta: float) -> void:
@@ -119,6 +122,17 @@ func _load_music(music: AudioStream):
 
 func miedoYHambreLayer(): #Modo de juego
 		$CanvasLayer/FiltroMiedoYHambre.visible=true
+		
+func risasYSonrisasLayer(): #Modo de juego
+		$CanvasLayer/FiltroRisasYSonrisas.visible=true
+		
+func inmortalModeLayer(): #Modo de juego
+		$CanvasLayer/FiltroInmortal.visible=true
+		$CanvasLayer/FiltroInmortal/ColorLayer.play()						
+
+func blindModeLayer(): #Modo de juego
+		$CanvasLayer/FiltroBlind.visible=true
+		$CanvasLayer/FiltroBlind/ColorLayer.play()	
 
 func activateBlindMode():
 	_blindMode=true

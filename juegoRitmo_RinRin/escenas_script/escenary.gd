@@ -18,7 +18,7 @@ var contrincante
 @export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	contrincante=_nivel1(false)
+	contrincante=_nivel3(false)
 	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 	
 	
@@ -64,6 +64,7 @@ func risasYSonrisasMode():
 	_increment=15
 	_decrement=-12.5
 	_load_escene()
+	escene.risasYSonrisasLayer()
 
 #incorrecta, pregunta 2
 func miedoYHambreMode():
@@ -82,7 +83,8 @@ func inmortalMode():
 	_decrement=0
 	_increment=10.2
 	_decreaseSpeed=-0.35
-	_load_escene()	
+	_load_escene()
+	escene.inmortalModeLayer()	
 	
 #incorrecta, pregunta 3
 func blindMode():
@@ -94,6 +96,7 @@ func blindMode():
 	_load_escene()
 	escene.activateBlindMode()
 	escene.biggerPressAreaScale()
+	escene.blindModeLayer()
 	
 
 #GENERAR NIVELES

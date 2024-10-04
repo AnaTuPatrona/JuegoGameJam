@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4bsfmmxp57vc"]
 
-[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/characters/GatoConBotas/heart pixel art 48x48.png" id="1_ql0j6"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="1_ql0j6"]
 
 [node name="Vida" type="Area2D"]
 

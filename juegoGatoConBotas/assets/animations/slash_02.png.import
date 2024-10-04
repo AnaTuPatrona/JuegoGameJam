@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drtlts736ujpb"
-path="res://.godot/imported/Background.jpeg-9d9c47efd52f756113e7a15b7b451de5.ctex"
+uid="uid://bbqvrhvvunj7m"
+path="res://.godot/imported/slash_02.png-6e00bfdf8581719439511848318a64b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://juegoGatoConBotas/assets/background/Background.jpeg"
-dest_files=["res://.godot/imported/Background.jpeg-9d9c47efd52f756113e7a15b7b451de5.ctex"]
+source_file="res://JuegoGatoConBotas/assets/animations/slash_02.png"
+dest_files=["res://.godot/imported/slash_02.png-6e00bfdf8581719439511848318a64b8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3g6dvvc8isdd"
-path="res://.godot/imported/Rey.png-808440fe8e762caa439d07a5af345107.ctex"
+uid="uid://c26ts222tmfy2"
+path="res://.godot/imported/twirl_03.png-8d44775864370f5107ff14d92b3ac7ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/characters/Rey/Rey.png"
-dest_files=["res://.godot/imported/Rey.png-808440fe8e762caa439d07a5af345107.ctex"]
+source_file="res://JuegoGatoConBotas/assets/animations/twirl_03.png"
+dest_files=["res://.godot/imported/twirl_03.png-8d44775864370f5107ff14d92b3ac7ae.ctex"]
 
 [params]
 

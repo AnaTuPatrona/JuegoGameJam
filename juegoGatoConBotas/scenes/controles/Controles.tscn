@@ -1,0 +1,274 @@
+[gd_scene load_steps=14 format=3 uid="uid://dedej50dmtkup"]
+
+[ext_resource type="FontFile" uid="uid://dnqc3486uaxqi" path="res://Menu/assets/Gameplay.ttf" id="1_6lr3k"]
+[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/controles/Controles.gd" id="1_otsqw"]
+[ext_resource type="Texture2D" uid="uid://bh4g1tb2erj5x" path="res://Menu/assets/Placeholders/Biblioteca.webp" id="3_g3wb0"]
+[ext_resource type="Texture2D" uid="uid://dfdwy4vintok7" path="res://general/assets_generales/teclas/A-Key.png" id="4_l3qpd"]
+[ext_resource type="Texture2D" uid="uid://d38w1jwv1ifpn" path="res://general/assets_generales/teclas/D-Key.png" id="5_6uvo2"]
+[ext_resource type="Texture2D" uid="uid://6guifkaschgr" path="res://general/assets_generales/teclas/W-Key.png" id="6_pkcxc"]
+
+[sub_resource type="Animation" id="Animation_588qe"]
+resource_name = "Animacion"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Instrucciones5:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Instrucciones7:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_v8fm0"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Instrucciones5:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Instrucciones7:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5o781"]
+_data = {
+"Animacion": SubResource("Animation_588qe"),
+"RESET": SubResource("Animation_v8fm0")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_qj7p1"]
+base_font = ExtResource("1_6lr3k")
+
+[sub_resource type="Animation" id="Animation_e3v7p"]
+resource_name = "Mostrar"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_yn7wb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4s4qd"]
+_data = {
+"Mostrar": SubResource("Animation_e3v7p"),
+"RESET": SubResource("Animation_yn7wb")
+}
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_otsqw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_g3wb0")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+root_node = NodePath("../Instrucciones")
+libraries = {
+"": SubResource("AnimationLibrary_5o781")
+}
+autoplay = "Animacion"
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 515.0
+offset_top = 100.0
+offset_right = -515.0
+offset_bottom = -570.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = SubResource("FontVariation_qj7p1")
+theme_override_font_sizes/font_size = 33
+text = "Controles
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instrucciones" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 365.0
+offset_top = 305.0
+offset_right = -336.0
+offset_bottom = -391.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("1_6lr3k")
+text = "Presiona las teclas		           y  					para moverte"
+fit_content = true
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="A-key" type="Sprite2D" parent="TextureRect"]
+position = Vector2(620, 315)
+scale = Vector2(0.1, 0.096)
+texture = ExtResource("4_l3qpd")
+
+[node name="D-key" type="Sprite2D" parent="TextureRect"]
+position = Vector2(710, 315)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_6uvo2")
+
+[node name="Instrucciones5" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 403.0
+offset_right = -141.0
+offset_bottom = -292.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_fonts/normal_font = ExtResource("1_6lr3k")
+text = "Presiona las teclas		           y  					al tiempo para atacar a la izquierda"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="A-key2" type="Sprite2D" parent="TextureRect"]
+position = Vector2(621, 412)
+scale = Vector2(0.1, 0.096)
+texture = ExtResource("4_l3qpd")
+
+[node name="W-key" type="Sprite2D" parent="TextureRect"]
+position = Vector2(710, 412)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_pkcxc")
+
+[node name="Instrucciones7" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 367.0
+offset_top = 496.0
+offset_right = -145.0
+offset_bottom = -199.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_fonts/normal_font = ExtResource("1_6lr3k")
+text = "Presiona las teclas		           y  					al tiempo para atacar a la derecha"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="D-key3" type="Sprite2D" parent="TextureRect"]
+position = Vector2(621, 505)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_6uvo2")
+
+[node name="W-key2" type="Sprite2D" parent="TextureRect"]
+position = Vector2(710, 505)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_pkcxc")
+
+[node name="Instrucciones10" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 884.0
+offset_top = 670.0
+offset_right = -36.0
+offset_bottom = -25.0
+theme_override_constants/outline_size = 19
+theme_override_fonts/font = ExtResource("1_6lr3k")
+text = "Presiona ENTER para continuar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/Instrucciones10"]
+libraries = {
+"": SubResource("AnimationLibrary_4s4qd")
+}
+autoplay = "Mostrar"

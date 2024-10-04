@@ -12,9 +12,6 @@ var rnd = RandomNumberGenerator.new()
 signal perder_vida()
 
 func _ready() -> void:
-	self.position.x = 640
-	self.position.y = 250
-	
 	timer.start()
 
 func _on_timer_timeout() -> void:
@@ -85,8 +82,6 @@ func _on_timer_timeout() -> void:
 				der = true
 				atacando_der = true
 				#print("Atacar Derecha")
-
-
 
 
 func RecibirGolpe(body):

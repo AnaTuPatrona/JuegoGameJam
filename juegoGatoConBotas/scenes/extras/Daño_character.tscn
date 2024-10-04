@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ssosc1wdw2b1"]
+
+[ext_resource type="Texture2D" uid="uid://crsn25a3hu3uh" path="res://juegoGatoConBotas/assets/animations/twirl_02.png" id="1_127x2"]
+[ext_resource type="Texture2D" uid="uid://c26ts222tmfy2" path="res://juegoGatoConBotas/assets/animations/twirl_03.png" id="2_w6ppy"]
+[ext_resource type="Texture2D" uid="uid://b2vmsgor53tnr" path="res://juegoGatoConBotas/assets/animations/twirl_01.png" id="3_e6x7s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3lfqi"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_127x2")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_w6ppy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e6x7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Daño" type="AnimatedSprite2D"]
+rotation = -1.1205
+scale = Vector2(0.262189, 0.291644)
+sprite_frames = SubResource("SpriteFrames_3lfqi")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0

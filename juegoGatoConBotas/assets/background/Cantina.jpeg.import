@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://batlo8ggu1l8n"
-path="res://.godot/imported/heart pixel art 48x48.png-0e81b44a7316fe581f86050c2380f303.ctex"
+uid="uid://bqyl01dpil4c"
+path="res://.godot/imported/Cantina.jpeg-d65266f191ea21deea316ec712fab974.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://juegoGatoConBotas/assets/characters/GatoConBotas/heart pixel art 48x48.png"
-dest_files=["res://.godot/imported/heart pixel art 48x48.png-0e81b44a7316fe581f86050c2380f303.ctex"]
+source_file="res://JuegoGatoConBotas/assets/background/Cantina.jpeg"
+dest_files=["res://.godot/imported/Cantina.jpeg-d65266f191ea21deea316ec712fab974.ctex"]
 
 [params]
 

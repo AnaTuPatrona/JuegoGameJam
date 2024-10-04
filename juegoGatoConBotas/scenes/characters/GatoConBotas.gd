@@ -1,6 +1,5 @@
 extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
-
 var der = false
 var izq = false
 var atacando = false
@@ -9,22 +8,22 @@ signal perder_vida()
 
 func _physics_process(delta: float) -> void:	
 	if Input.is_anything_pressed():
-		if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_up"):
+		if Input.is_key_pressed(KEY_D) and Input.is_key_pressed(KEY_W):
 			animation_player.play("AtacarDerecha")
 			izq = false
 			der = true
 			atacando = true
-		elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_up"):
+		elif Input.is_key_pressed(KEY_A) and Input.is_key_pressed(KEY_W):
 			animation_player.play("AtacarIzquierda")
 			izq = true
 			der = false
 			atacando = true
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_key_pressed(KEY_D):
 			animation_player.play("MoverDerecha")
 			izq = false
 			der = true
 			atacando = false
-		elif Input.is_action_pressed("ui_left"):
+		elif Input.is_key_pressed(KEY_A):
 			animation_player.play("MoverIzquierda")
 			izq = true
 			der = false

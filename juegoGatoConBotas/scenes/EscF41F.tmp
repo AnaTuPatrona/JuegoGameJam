@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dveyons2potho"]
+
+[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/Escenario.gd" id="1_6taxy"]
+[ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://juegoGatoConBotas/scenes/GatoConBotas.tscn" id="2_5xvhm"]
+[ext_resource type="PackedScene" uid="uid://bpd0rkacbjgnv" path="res://juegoGatoConBotas/scenes/Background.tscn" id="2_kclh5"]
+[ext_resource type="PackedScene" uid="uid://bebi1pg05orxg" path="res://juegoGatoConBotas/scenes/Rey.tscn" id="3_hdd2k"]
+
+[node name="Escenario" type="Node2D"]
+script = ExtResource("1_6taxy")
+
+[node name="Background" parent="." instance=ExtResource("2_kclh5")]
+position = Vector2(663, 202)
+
+[node name="Enemigo" parent="." instance=ExtResource("3_hdd2k")]
+
+[node name="GatoConBotas" parent="." instance=ExtResource("2_5xvhm")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="perder_vida" from="Enemigo" to="." method="PerderVidaEnemy"]
+[connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

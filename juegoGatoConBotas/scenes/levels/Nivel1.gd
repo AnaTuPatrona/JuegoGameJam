@@ -2,10 +2,15 @@ extends Node2D
 
 @onready var character = $GatoConBotas
 @onready var enemy = $Enemigo
-const maton_xcn = preload("res://juegoGatoConBotas/scenes/GatoConBotas/Maton.tscn")
-const corazon_scn = preload("res://juegoGatoConBotas/scenes/GatoConBotas/Vida.tscn")
+@onready var timer = $Timer
+const corazon_scn = preload("res://juegoGatoConBotas/scenes/extras/Vida.tscn")
+const daño_character_scn = preload("res://juegoGatoConBotas/scenes/extras/Daño_character.tscn")
+const daño_enemy_scn = preload("res://juegoGatoConBotas/scenes/extras/Daño_enemy.tscn")
 var corazones_char = Array([], TYPE_OBJECT, "Area2D", null)
 var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
+var daño_character = daño_character_scn.instantiate()
+var daño_enemy = daño_enemy_scn.instantiate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(character.vidas):
@@ -35,9 +40,22 @@ func _process(delta: float) -> void:
 
 func PerderVidaChar() -> void:
 	print("Has perdido una vida")
+	daño_enemy.position.x = enemy.position.x - 45
+	daño_enemy.position.y = enemy.position.y +90
+	add_child(daño_enemy)
+	timer.start(0.5)
 	corazones_char[character.vidas-1].queue_free()
 
 
 func PerderVidaEnemy() -> void:
 	print("Enemigo perdio una vida")
+	daño_character.position.x = character.position.x + 90
+	daño_character.position.y = character.position.y -90
+	add_child(daño_character)
+	timer.start(0.5)
 	corazones_enemy[enemy.vidas-1].queue_free()
+
+
+func _on_timer_timeout() -> void:
+	remove_child(daño_character)
+	remove_child(daño_enemy)

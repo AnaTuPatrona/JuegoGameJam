@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3g6dvvc8isdd"
-path="res://.godot/imported/Rey.png-808440fe8e762caa439d07a5af345107.ctex"
+uid="uid://batlo8ggu1l8n"
+path="res://.godot/imported/heart pixel art 48x48.png-99d6215d3f3740b99c31aa319260c24c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/characters/Rey/Rey.png"
-dest_files=["res://.godot/imported/Rey.png-808440fe8e762caa439d07a5af345107.ctex"]
+source_file="res://JuegoGatoConBotas/assets/gui/heart pixel art 48x48.png"
+dest_files=["res://.godot/imported/heart pixel art 48x48.png-99d6215d3f3740b99c31aa319260c24c.ctex"]
 
 [params]
 

@@ -30,6 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if character == null:
 		print("Game Over")
+		Transicion.cambiar_escena("res://general/assets_generales/EscenaGameOver.tscn")
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:

@@ -18,7 +18,7 @@ var contrincante
 @export var contrincantes:Array[PackedScene]
 
 func _ready() -> void:
-	contrincante=_nivel3(false)
+	contrincante=_nivel2(false)
 	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 	
 	
@@ -92,7 +92,7 @@ func blindMode():
 	_velocity=380
 	_cooldown=0.52	
 	_decrement=-6
-	_increment=18.5
+	_increment=17.5
 	_load_escene()
 	escene.activateBlindMode()
 	escene.biggerPressAreaScale()

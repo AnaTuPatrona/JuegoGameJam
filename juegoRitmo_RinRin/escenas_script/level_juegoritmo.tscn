@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8vmfmqx26mat"]
+[gd_scene load_steps=10 format=3 uid="uid://c8vmfmqx26mat"]
 
 [ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/level_1.gd" id="1_ip3lu"]
 [ext_resource type="PackedScene" uid="uid://b78s881eoxl85" path="res://juegoRitmo_RinRin/escenas_script/keyobject.tscn" id="2_3477r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy7nqj5qd48ev" path="res://general/escenas_generales/gameover.tscn" id="3_qo6pu"]
 [ext_resource type="Texture2D" uid="uid://dfdwy4vintok7" path="res://general/assets_generales/teclas/A-Key.png" id="4_23agt"]
 [ext_resource type="Texture2D" uid="uid://oysvshahniq2" path="res://juegoRitmo_RinRin/assets/modo_miedoyhambre.png" id="4_dy0wv"]
+[ext_resource type="Script" path="res://juegoRitmo_RinRin/escenas_script/life_bar.gd" id="4_ln73d"]
 [ext_resource type="Texture2D" uid="uid://6guifkaschgr" path="res://general/assets_generales/teclas/W-Key.png" id="5_wsann"]
 [ext_resource type="Texture2D" uid="uid://d38w1jwv1ifpn" path="res://general/assets_generales/teclas/D-Key.png" id="6_hb7jt"]
 
@@ -25,6 +26,7 @@ offset_right = 233.0
 offset_bottom = 38.0
 value = 100.0
 show_percentage = false
+script = ExtResource("4_ln73d")
 
 [node name="ContenedorNotas" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 5

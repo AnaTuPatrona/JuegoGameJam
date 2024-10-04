@@ -8,6 +8,6 @@ visibility_layer = 512
 z_index = 50
 script = ExtResource("1_ceu7u")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="imagen" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("1_nu2bb")

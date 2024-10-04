@@ -1,20 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqxaj4mn128mv"]
+[gd_scene load_steps=13 format=3 uid="uid://cqxaj4mn128mv"]
 
 [ext_resource type="PackedScene" uid="uid://djb6qjik7pnr5" path="res://JuegoPeterPan/Scenes/player.tscn" id="1_f1vpl"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/main_scene.gd" id="1_hkhde"]
 [ext_resource type="Texture2D" uid="uid://wfo783oj2nsd" path="res://JuegoPeterPan/assets/Sprites/BG/1.png" id="2_5iuy3"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/back_ground.gd" id="2_7n65r"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/gui.gd" id="2_y5nmr"]
 [ext_resource type="Texture2D" uid="uid://dqho8j5xetam6" path="res://JuegoPeterPan/assets/Sprites/BG/2.png" id="4_kh2jx"]
 [ext_resource type="Texture2D" uid="uid://ckqk70hf4knx8" path="res://JuegoPeterPan/assets/Sprites/BG/3.png" id="5_7j3lt"]
 [ext_resource type="PackedScene" uid="uid://bxgiejhct7qlw" path="res://JuegoPeterPan/Scenes/bullet_spawner.tscn" id="7_xv6un"]
 [ext_resource type="AudioStream" uid="uid://73sq3sxicxf4" path="res://JuegoPeterPan/assets/music/windmill v2.mp3" id="8_33ppv"]
 [ext_resource type="PackedScene" uid="uid://cmpbtfd5s75ny" path="res://JuegoPeterPan/Scenes/boat.tscn" id="9_07wjs"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/characters/GatoConBotas/heart pixel art 48x48.png" id="10_iiig6"]
+[ext_resource type="Texture2D" uid="uid://bqq7kuuu5ia4u" path="res://JuegoPeterPan/assets/Sprites/peter_pan_portrait-removebg.png" id="11_vbpd8"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_hkhde")
 
+[node name="GUI" type="Node2D" parent="."]
+visibility_layer = 8
+z_index = 2
+position = Vector2(1072, 60)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("2_y5nmr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+offset_right = 152.0
+offset_bottom = 48.0
+size_flags_vertical = 3
+
+[node name="Heart1" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_iiig6")
+
+[node name="Heart2" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_iiig6")
+
+[node name="Heart3" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_iiig6")
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI"]
+position = Vector2(-52, 17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_vbpd8")
+
 [node name="Player" parent="." instance=ExtResource("1_f1vpl")]
-position = Vector2(128, 5)
+position = Vector2(132, 77)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -63,4 +95,6 @@ volume_db = -4.837
 position = Vector2(1011, 530)
 scale = Vector2(0.8, 0.8)
 
+[connection signal="reduce_life" from="Player" to="GUI" method="_on_player_reduce_life"]
+[connection signal="spawn_bullet_particles" from="Player" to="." method="_on_player_spawn_bullet_particles"]
 [connection signal="spawn_bullet" from="BulletSpawner" to="." method="_on_bullet_spawner_spawn_bullet"]

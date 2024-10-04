@@ -3,7 +3,7 @@ extends Sprite2D
 var speed = 200
 
 func _ready() -> void:
-	pass 
+	pass
 
 
 func _process(delta: float) -> void:

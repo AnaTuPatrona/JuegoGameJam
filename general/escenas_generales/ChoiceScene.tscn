@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="ChoiceScene" type="Control"]
+process_mode = 3
 z_index = 60
 layout_mode = 3
 anchors_preset = 15

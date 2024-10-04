@@ -17,11 +17,23 @@ var choice
 var contrincante
 @export var contrincantes:Array[PackedScene]
 
+#PREGUNTAS
+
+var _preguntas=["Rinrin Renacuajo, estás muy tieso y muy majo ¿Qué te dijo tu mamá cuando ibas a salir?",
+"Renacuajo, nos moríamos por oirte cantar ¿Por qué nos dejaste con la expectativa?",
+"Oiga, Ranito ¿Usted sabe quién soy yo?"]
+
+#RESPUESTAS
+
+var _respuestas=[{true: "Que no me fuera.", false: "Que no volviera."},
+{false: "Tengo miedo y hambre.", true: "Tengo sed y la ropa muy apretada."},
+{true: "El pato tragón.", false: "El pato dragón."}]
+
 func _ready() -> void:
-	contrincante=_nivel3(false)
-	$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
-	#ChoiceScene.startText("hola")
-	
+	#contrincante=_nivel3(false)
+	#$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
+	#ChoiceScene.set_questionV2(_preguntas[2],_respuestas[2])
+	pass
 	
 func _process(delta: float)->void:
 	if(escene!=null):
@@ -31,8 +43,9 @@ func _process(delta: float)->void:
 		if(!escene.hasFailed.is_connected(_alFallar)):
 			escene.hasFailed.connect(_alFallar)
 	else:
+		_crearPregunta()
 		_byDefault()
-		contrincante.playIdle()		
+		#contrincante.playIdle()		
 
 func _load_escene():
 	escene=overBackground.instantiate()
@@ -43,6 +56,9 @@ func _load_escene():
 	escene._inc=_increment
 	escene._dec=_decrement
 	$"CanvasLayer/ContenedorNivel".add_child(escene)
+
+func _crearPregunta():
+	ChoiceScene.set_questionV2(_preguntas[_musicId-1],_respuestas[_musicId-1])
 
 #MODOS DE DECISIÓN
 
@@ -101,7 +117,6 @@ func blindMode():
 
 #GENERAR NIVELES
 func _nivel1(op:bool)->Node:
-	_musicId=1
 	if(op==true):
 		baseEscene()
 	else:
@@ -109,7 +124,6 @@ func _nivel1(op:bool)->Node:
 	return contrincantes[0].instantiate()
 	
 func _nivel2(op:bool)->Node:
-	_musicId=2
 	if(op==true):
 		risasYSonrisasMode()
 	else:
@@ -117,12 +131,14 @@ func _nivel2(op:bool)->Node:
 	return contrincantes[1].instantiate()	
 	
 func _nivel3(op:bool)->Node:
-	_musicId=3
 	if(op==true):
 		inmortalMode()
 	else:
 		blindMode()	
 	return contrincantes[2].instantiate()		
+
+func changeMusicId():
+	_musicId+=1
 	
 func _byDefault():
 	$"CanvasLayer/ContenedorNivel/Rinrin".playIdle()

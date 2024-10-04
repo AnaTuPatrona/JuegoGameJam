@@ -55,6 +55,7 @@ func display_optionV2(textin: String, options: Dictionary) -> void: #funcion par
 	await(anim.animation_finished)	
 
 func _buscarTrue(answer: String) -> bool:
+	print(_choiceDictionary.find_key(answer))
 	return _choiceDictionary.find_key(answer)
 
 func _ready() -> void:

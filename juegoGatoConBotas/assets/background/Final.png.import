@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkmf0ea0pig8b"
-path="res://.godot/imported/Cantina.png-40fc0b7abf0c2ebb6db07e71340289a3.ctex"
+uid="uid://csj7k0gqt73xj"
+path="res://.godot/imported/Final.png-266405d6c725cf3a2adc9f9b11ab2ba0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/scenes/controles/Cantina.png"
-dest_files=["res://.godot/imported/Cantina.png-40fc0b7abf0c2ebb6db07e71340289a3.ctex"]
+source_file="res://JuegoGatoConBotas/assets/background/Final.png"
+dest_files=["res://.godot/imported/Final.png-266405d6c725cf3a2adc9f9b11ab2ba0.ctex"]
 
 [params]
 

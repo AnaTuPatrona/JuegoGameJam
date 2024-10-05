@@ -15,19 +15,24 @@ var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
 var daño_character = daño_character_scn.instantiate()
 var daño_enemy = daño_enemy_scn.instantiate()
 
+
 func _init() -> void:
 	ChoiceScene.opcion1.connect(_on_opcion1)
 	ChoiceScene.opcion2.connect(_on_opcion2)	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().paused = true
+	for i in range(3):
+		enemy.animation_player.play("Normal")
 	await ChoiceScene.show_animation()
+	get_tree().paused = true
 	ChoiceScene.display_text("Veo que el rey les ha brindado proteccion para ti y para tu amo")
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Crees que vas a poder vencerme?","Por supuesto","Vine en son de paz")
 	await get_tree().create_timer(10).timeout
-	get_tree().paused = false
+	gui()
+	
+func gui()->void:
 	for i in range(character.vidas):
 		var corazon = corazon_scn.instantiate()
 		corazon.position.x = 50*(i+1)
@@ -42,6 +47,7 @@ func _ready() -> void:
 		corazones_enemy.append(corazon)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if character == null:
 		#loseScreen=GameOver.instantiate()
 		#add_sibling(loseScreen)
@@ -58,7 +64,6 @@ func _process(delta: float) -> void:
 
 
 func PerderVidaChar() -> void:
-	print("Has perdido una vida")
 	daño_enemy.position.x = enemy.position.x - 45
 	daño_enemy.position.y = enemy.position.y +90
 	add_child(daño_enemy)
@@ -67,7 +72,6 @@ func PerderVidaChar() -> void:
 
 
 func PerderVidaEnemy() -> void:
-	print("Enemigo perdio una vida")
 	daño_character.position.x = character.position.x + 90
 	daño_character.position.y = character.position.y -90
 	add_child(daño_character)
@@ -85,10 +89,15 @@ func crearPregunta(pregunta: String, respuesta1: String, respuesta2: String)->vo
 func _on_opcion1()->void:
 	ChoiceScene.display_text("Pues eso esta por verse")
 	await get_tree().create_timer(6).timeout
+	ChoiceScene.display_text("Preparate!!")
+	await get_tree().create_timer(8).timeout
 	await(ChoiceScene.hide_animation())
-
+	get_tree().paused = false
+	
 func _on_opcion2()->void:
-	ChoiceScene.display_text("JAJAJAJA si como no, a mi no me puedes engañarme")
+	ChoiceScene.display_text("JAJAJAJA si como no, a mi no me puedes engañar")
 	await get_tree().create_timer(6).timeout
 	ChoiceScene.display_text("Vamos a resolver esto de una vez")
+	await get_tree().create_timer(6).timeout
 	await(ChoiceScene.hide_animation())
+	get_tree().paused = false

@@ -12,6 +12,7 @@ var rnd = RandomNumberGenerator.new()
 signal perder_vida()
 
 func _ready() -> void:
+	animation_player.play("Normal")
 	timer.start()
 
 func _on_timer_timeout() -> void:

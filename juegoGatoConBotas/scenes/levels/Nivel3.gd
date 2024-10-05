@@ -15,21 +15,22 @@ var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
 var daño_character = daño_character_scn.instantiate()
 var daño_enemy = daño_enemy_scn.instantiate()
 
-var accion = false
-
 func _init() -> void:
 	ChoiceScene.opcion1.connect(_on_opcion1)
 	ChoiceScene.opcion2.connect(_on_opcion2)	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().paused = true
+	for i in range(3):
+		enemy.animation_player.play("Normal")
 	await ChoiceScene.show_animation()
+	get_tree().paused = true
 	ChoiceScene.display_text("Te atreves a venir a desafiarme")
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo, estas preparado?","Mas que nunca","A pelear")
-	await get_tree().create_timer(10).timeout
-	get_tree().paused = false
+	gui()
+	
+func gui()-> void:
 	for i in range(character.vidas):
 		var corazon = corazon_scn.instantiate()
 		corazon.position.x = 50*(i+1)
@@ -42,7 +43,6 @@ func _ready() -> void:
 		corazon.position.y = 50
 		add_child(corazon)
 		corazones_enemy.append(corazon)
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if character == null:
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
-		Transicion.cambiar_escena("res://Menu/Scenes/main_menu.tscn")
+		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Final.tscn")
 		queue_free()
 	elif enemy.vidas == 0:
 		enemy.queue_free()
@@ -89,6 +89,7 @@ func _on_opcion1()->void:
 	await get_tree().create_timer(7.5).timeout
 	$Sonido.stop()
 	await(ChoiceScene.hide_animation())
+	get_tree().paused = false
 
 func _on_opcion2()->void:
 	ChoiceScene.display_text("Ohh")
@@ -96,3 +97,4 @@ func _on_opcion2()->void:
 	ChoiceScene.display_text("Veo que te crees mucho")
 	await get_tree().create_timer(4).timeout
 	await(ChoiceScene.hide_animation())
+	get_tree().paused = false

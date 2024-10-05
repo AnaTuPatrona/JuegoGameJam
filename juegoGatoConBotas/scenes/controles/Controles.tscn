@@ -46,6 +46,78 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../A-key:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../A-key2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../D-key3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../D-key:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../W-key:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../W-key2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_v8fm0"]
 length = 5.0
@@ -84,6 +156,78 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../A-key:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../A-key2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../D-key3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../D-key:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../W-key:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../W-key2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5o781"]
@@ -172,7 +316,7 @@ text = "Controles
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Instrucciones" type="RichTextLabel" parent="TextureRect"]
+[node name="Instrucciones" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -183,15 +327,13 @@ offset_right = -336.0
 offset_bottom = -391.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("1_6lr3k")
-text = "Presiona las teclas		           y  					para moverte"
-fit_content = true
-scroll_active = false
+theme_override_fonts/font = ExtResource("1_6lr3k")
+text = "Presiona las teclas                 y                para moverte"
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="A-key" type="Sprite2D" parent="TextureRect"]
-position = Vector2(620, 315)
+position = Vector2(610, 315)
 scale = Vector2(0.1, 0.096)
 texture = ExtResource("4_l3qpd")
 
@@ -200,24 +342,24 @@ position = Vector2(710, 315)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_6uvo2")
 
-[node name="Instrucciones5" type="RichTextLabel" parent="TextureRect"]
+[node name="Instrucciones5" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 366.0
+offset_left = 365.0
 offset_top = 403.0
-offset_right = -141.0
+offset_right = -142.0
 offset_bottom = -292.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 19
-theme_override_fonts/normal_font = ExtResource("1_6lr3k")
-text = "Presiona las teclas		           y  					al tiempo para atacar a la izquierda"
+theme_override_fonts/font = ExtResource("1_6lr3k")
+text = "Presiona las teclas                 y                al tiempo para atacar a la izquierda"
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="A-key2" type="Sprite2D" parent="TextureRect"]
-position = Vector2(621, 412)
+position = Vector2(610, 412)
 scale = Vector2(0.1, 0.096)
 texture = ExtResource("4_l3qpd")
 
@@ -226,24 +368,24 @@ position = Vector2(710, 412)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_pkcxc")
 
-[node name="Instrucciones7" type="RichTextLabel" parent="TextureRect"]
+[node name="Instrucciones7" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 367.0
+offset_left = 365.0
 offset_top = 496.0
-offset_right = -145.0
+offset_right = -147.0
 offset_bottom = -199.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 19
-theme_override_fonts/normal_font = ExtResource("1_6lr3k")
-text = "Presiona las teclas		           y  					al tiempo para atacar a la derecha"
+theme_override_fonts/font = ExtResource("1_6lr3k")
+text = "Presiona las teclas                 y                 al tiempo para atacar a la derecha"
 visible_characters = 0
 visible_ratio = 0.0
 
 [node name="D-key3" type="Sprite2D" parent="TextureRect"]
-position = Vector2(621, 505)
+position = Vector2(610, 505)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_6uvo2")
 

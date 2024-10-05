@@ -22,6 +22,7 @@ GameOver = ExtResource("2_py8ci")
 
 [node name="Cancion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_y7ys1")
+parameters/looping = true
 script = ExtResource("7_ath3o")
 
 [connection signal="perder_vida" from="Rey" to="." method="PerderVidaEnemy"]

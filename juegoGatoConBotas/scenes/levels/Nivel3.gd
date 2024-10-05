@@ -28,7 +28,6 @@ func _ready() -> void:
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo, estas preparado?","Mas que nunca","A pelear")
 	await get_tree().create_timer(10).timeout
-	$Cancion.play_song()
 	gui()
 	enemy.iniciar()
 	
@@ -83,6 +82,7 @@ func _on_timer_timeout() -> void:
 	remove_child(daño_enemy)
 
 func crearPregunta(pregunta: String, respuesta1: String, respuesta2: String)->void:
+	$Cancion.play_song()
 	ChoiceScene.display_option(pregunta,respuesta1,respuesta2)
 	
 func _on_opcion1()->void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsgkoo34mjxba"]
+[gd_scene load_steps=9 format=3 uid="uid://bsgkoo34mjxba"]
 
 [ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/levels/Nivel3.gd" id="1_eysf5"]
 [ext_resource type="PackedScene" uid="uid://cy7nqj5qd48ev" path="res://general/escenas_generales/gameover.tscn" id="2_40pln"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck2jbim2wj2g5" path="res://JuegoGatoConBotas/scenes/characters/Ogro.tscn" id="4_jcj3o"]
 [ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://JuegoGatoConBotas/scenes/characters/GatoConBotas.tscn" id="4_ntj6c"]
 [ext_resource type="AudioStream" uid="uid://c7o7dum8xldb0" path="res://JuegoGatoConBotas/assets/characters/Ogro/OGRO.mp3" id="6_xbyv5"]
+[ext_resource type="AudioStream" uid="uid://snrn8r0lvltr" path="res://JuegoGatoConBotas/assets/songs/MUSICA DE BATALLA - Ruinas.mp3" id="7_8cekl"]
 [ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/levels/Cancion.gd" id="7_r7ir3"]
 
 [node name="Nivel3" type="Node2D"]
@@ -28,6 +29,7 @@ offset_bottom = 1107.0
 stream = ExtResource("6_xbyv5")
 
 [node name="Cancion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8cekl")
 script = ExtResource("7_r7ir3")
 
 [connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]

@@ -61,10 +61,6 @@ func _ready() -> void:
 	$CanvasLayer.layer=3
 
 
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_opcion_1_pressed() -> void: #emite señal para el botón 1 seleccionado
 	emit_signal("opcion1")
 	

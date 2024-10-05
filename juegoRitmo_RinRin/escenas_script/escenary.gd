@@ -2,7 +2,7 @@ extends Node2D
 
 var _decreaseSpeed:float=-0.15
 var _cooldown:float=0.48
-var _musicId:float=1
+var _musicId:float=2
 
 var _velocity:float=260
 var _increment:float=10.2
@@ -21,7 +21,7 @@ var contrincante: Node
 #PREGUNTAS
 
 var _preguntas=["Rinrin Renacuajo, estás muy tieso y muy majo ¿Qué te dijo tu mamá cuando ibas a salir?",
-"Renacuajo, moría por oirte cantar ¿Por qué nos dejaste con la expectativa?",
+"Renacuajo, moría por oirte cantar ¿Por qué me dejaste con la expectativa?",
 "Oiga, Ranito ¿Usted sabe quién soy yo?"]
 
 #RESPUESTAS
@@ -174,9 +174,14 @@ func _on_opcion2():
 func _onNull():
 	if(contrincante!=null):
 		$CanvasLayer/ContenedorNivel/Contrincante.remove_child(contrincante)
-	contrincante=contrincantes[_musicId-1].instantiate()
 	if(_musicId<4):
+		contrincante=contrincantes[_musicId-1].instantiate()
 		$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 		_crearPregunta()
 	else:
-		pass	
+		ChoiceScene.show_animation()
+		ChoiceScene.display_text("Despues del baile, Renacuajo ganó una victoria formidable. Así, Rinrin Renacuajo volvió a su casa saltando.")
+		await get_tree().create_timer(3.2).timeout
+		await(ChoiceScene.hide_animation())
+		Transicion.cambiar_escena("res://Menu/Scenes/main_menu.tscn")
+		queue_free()

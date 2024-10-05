@@ -3,6 +3,8 @@ extends Node2D
 func _ready() -> void:
 	$BgMusic.play()
 
+func _init() -> void:
+	pass
 
 func _process(delta: float) -> void:
 	pass
@@ -23,5 +25,4 @@ func _on_player_spawn_bullet_particles(particles: Variant, location: Variant) ->
 
 func _on_player_game_over() -> void:
 	$Scream.play()
-	
 	Transicion.game_over()

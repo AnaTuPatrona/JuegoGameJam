@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	global_position.x -= speed * delta
+	rotation_degrees = rotation_degrees - speed*delta
 	
 	if global_position.x < -20:
 		queue_free()

@@ -8,6 +8,10 @@ func _ready() -> void:
 func _process(delta: float)->void:
 	if(_activated && $imagen.modulate.a8<255):
 		_changeAlpha()
+		if($imagen.modulate.a8>=255):
+			await get_tree().create_timer(1.7).timeout
+			await (Transicion.cambiar_escena("res://Menu/Scenes/main_menu.tscn"))
+			queue_free()
 	
 func _changeAlpha():
 	$imagen.modulate.a8+=10

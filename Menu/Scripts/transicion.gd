@@ -20,3 +20,12 @@ func iniciar():
 func _ready():
 	layer = -1
 	$AnimationPlayer.play("Transicion")
+
+func game_over():
+	layer = 5
+	$AnimationPlayer.play_backwards("inicio")
+	await(anim.animation_finished)
+	get_tree().change_scene_to_file("res://general/escenas_generales/gameover2.tscn")
+	$AnimationPlayer.play_backwards("inicio")
+	await get_tree().create_timer(4.0).timeout
+	cambiar_escena("res://Menu/Scenes/main_menu.tscn" )

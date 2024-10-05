@@ -99,4 +99,5 @@ func _on_opcion2()->void:
 	ChoiceScene.display_text("Veo que te crees mucho")
 	await get_tree().create_timer(4).timeout
 	await(ChoiceScene.hide_animation())
+	enemy.timer.wait_time = 0.6
 	get_tree().paused = false

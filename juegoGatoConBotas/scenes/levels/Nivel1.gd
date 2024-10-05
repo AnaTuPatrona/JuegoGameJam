@@ -99,4 +99,5 @@ func _on_opcion2()->void:
 	ChoiceScene.display_text("Estas muy equivocado!")
 	await get_tree().create_timer(6).timeout
 	await(ChoiceScene.hide_animation())
+	enemy.timer.wait_time = 0.6
 	get_tree().paused = false

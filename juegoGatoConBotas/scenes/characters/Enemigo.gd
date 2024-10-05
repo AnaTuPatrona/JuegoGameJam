@@ -17,7 +17,6 @@ func _ready() -> void:
 
 func _on_timer_timeout() -> void:
 	if empezar:
-		print("Ya empezo")
 		var num = rnd.randi_range(0,10)
 		if num<=5:
 			izq = true

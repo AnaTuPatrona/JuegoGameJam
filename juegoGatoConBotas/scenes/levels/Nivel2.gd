@@ -68,6 +68,7 @@ func PerderVidaChar() -> void:
 	daño_enemy.position.x = enemy.position.x - 45
 	daño_enemy.position.y = enemy.position.y +90
 	add_child(daño_enemy)
+	print(enemy.timer.wait_time)
 	timer.start(0.5)
 	corazones_char[character.vidas-1].queue_free()
 
@@ -93,6 +94,7 @@ func _on_opcion1()->void:
 	ChoiceScene.display_text("Preparate!!")
 	await get_tree().create_timer(6).timeout
 	await(ChoiceScene.hide_animation())
+	enemy.timer.wait_time = 0.6
 	get_tree().paused = false
 	
 func _on_opcion2()->void:

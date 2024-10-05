@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmpbtfd5s75ny"]
 
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/boat.gd" id="1_x8ujj"]
-[ext_resource type="Texture2D" uid="uid://dfmbe2drvkefi" path="res://JuegoPeterPan/assets/Sprites/Pirate Ship (Idle) PREVIEW.png" id="2_n8vc5"]
+[ext_resource type="Texture2D" uid="uid://daaubhtn2end5" path="res://JuegoPeterPan/assets/Sprites/Pirate Ship (Idle) PREVIEW2222.png" id="2_1a1j3"]
 [ext_resource type="Texture2D" uid="uid://b2wvmwi4b2vuo" path="res://JuegoPeterPan/assets/Sprites/water.png" id="3_kua2k"]
 
 [sub_resource type="Animation" id="Animation_1cgfp"]
@@ -45,7 +45,7 @@ _data = {
 script = ExtResource("1_x8ujj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("2_n8vc5")
+texture = ExtResource("2_1a1j3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-30, 67.5)

@@ -1,26 +1,29 @@
-[gd_scene load_steps=24 format=3 uid="uid://cqxaj4mn128mv"]
+[gd_scene load_steps=27 format=3 uid="uid://da657l7b7x2d0"]
 
-[ext_resource type="PackedScene" uid="uid://djb6qjik7pnr5" path="res://JuegoPeterPan/Scenes/player.tscn" id="1_f1vpl"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/main_scene.gd" id="1_hkhde"]
-[ext_resource type="Texture2D" uid="uid://wfo783oj2nsd" path="res://JuegoPeterPan/assets/Sprites/BG/1.png" id="2_5iuy3"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/back_ground.gd" id="2_7n65r"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/gui.gd" id="2_y5nmr"]
-[ext_resource type="Texture2D" uid="uid://dqho8j5xetam6" path="res://JuegoPeterPan/assets/Sprites/BG/2.png" id="4_kh2jx"]
-[ext_resource type="Texture2D" uid="uid://ckqk70hf4knx8" path="res://JuegoPeterPan/assets/Sprites/BG/3.png" id="5_7j3lt"]
-[ext_resource type="PackedScene" uid="uid://bxgiejhct7qlw" path="res://JuegoPeterPan/Scenes/bullet_spawner.tscn" id="7_xv6un"]
-[ext_resource type="AudioStream" uid="uid://73sq3sxicxf4" path="res://JuegoPeterPan/assets/music/windmill v2.mp3" id="8_33ppv"]
-[ext_resource type="PackedScene" uid="uid://cmpbtfd5s75ny" path="res://JuegoPeterPan/Scenes/boat.tscn" id="9_07wjs"]
-[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="10_iiig6"]
-[ext_resource type="Texture2D" uid="uid://bqq7kuuu5ia4u" path="res://JuegoPeterPan/assets/Sprites/peter_pan_portrait-removebg.png" id="11_vbpd8"]
-[ext_resource type="AudioStream" uid="uid://hnuelt7hgn4g" path="res://general/assets_generales/scream.mp3" id="13_uymyc"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Scripter.gd" id="14_dwmru"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter.gd" id="15_4clsl"]
-[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter1.gd" id="15_8x8gq"]
-[ext_resource type="Texture2D" uid="uid://cmrtbmgf5q1bv" path="res://JuegoPeterPan/assets/Sprites/garfio_portrait-removebg-preview.png" id="16_mnou5"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Second_Level.gd" id="1_d3n1p"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/gui.gd" id="2_d3rq1"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="3_k3h1o"]
+[ext_resource type="Texture2D" uid="uid://bqq7kuuu5ia4u" path="res://JuegoPeterPan/assets/Sprites/peter_pan_portrait-removebg.png" id="4_a5ewf"]
+[ext_resource type="PackedScene" uid="uid://djb6qjik7pnr5" path="res://JuegoPeterPan/Scenes/player.tscn" id="5_13n4t"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/back_ground.gd" id="6_uomhe"]
+[ext_resource type="Texture2D" uid="uid://bux20flrx6483" path="res://JuegoPeterPan/assets/Sprites/BG2/1.png" id="7_fuab6"]
+[ext_resource type="Texture2D" uid="uid://cre35t2skryji" path="res://JuegoPeterPan/assets/Sprites/BG2/3.png" id="8_4c4s1"]
+[ext_resource type="Texture2D" uid="uid://cvimimhypxal0" path="res://JuegoPeterPan/assets/Sprites/BG2/2.png" id="9_24r5j"]
+[ext_resource type="PackedScene" uid="uid://bxgiejhct7qlw" path="res://JuegoPeterPan/Scenes/bullet_spawner.tscn" id="10_4jrki"]
+[ext_resource type="Texture2D" uid="uid://ybldi4lef5vl" path="res://JuegoPeterPan/assets/Sprites/barco_grande1-removebg-preview.png" id="10_rei3y"]
+[ext_resource type="AudioStream" uid="uid://jkot6btno5rc" path="res://Menu/assets/Sounds/Ill Face Myself special ver.mp3" id="11_162kv"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/bigSHip.gd" id="11_cwcr7"]
+[ext_resource type="AudioStream" uid="uid://hnuelt7hgn4g" path="res://general/assets_generales/scream.mp3" id="13_6yxbg"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Scripter2.gd" id="15_s0vy0"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter1.gd" id="15_wq1e4"]
+[ext_resource type="Texture2D" uid="uid://cmrtbmgf5q1bv" path="res://JuegoPeterPan/assets/Sprites/garfio_portrait-removebg-preview.png" id="16_vlsxj"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter.gd" id="17_tumgn"]
+[ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_wendy.gd" id="18_ahkao"]
+[ext_resource type="Texture2D" uid="uid://4san6m6dw2lq" path="res://JuegoPeterPan/assets/Sprites/wendy portrait.png" id="19_rgasb"]
 
-[sub_resource type="Animation" id="Animation_fn328"]
-resource_name = "escape"
-length = 20.0
+[sub_resource type="Animation" id="Animation_qne16"]
+resource_name = "boat"
+length = 120.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,13 +31,13 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
+"times": PackedFloat32Array(0, 120),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1011, 530), Vector2(1652, 562)]
+"values": [Vector2(1270, 345), Vector2(665, 345)]
 }
 
-[sub_resource type="Animation" id="Animation_786b2"]
+[sub_resource type="Animation" id="Animation_1tvpu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,13 +49,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1011, 530)]
+"values": [Vector2(1270, 345)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hx7qm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlghi"]
 _data = {
-"RESET": SubResource("Animation_786b2"),
-"escape": SubResource("Animation_fn328")
+"RESET": SubResource("Animation_1tvpu"),
+"boat": SubResource("Animation_qne16")
 }
 
 [sub_resource type="Animation" id="Animation_dkvvq"]
@@ -91,15 +94,15 @@ _data = {
 "show": SubResource("Animation_qpgav")
 }
 
-[node name="MainScene" type="Node2D"]
-script = ExtResource("1_hkhde")
+[node name="SecondLevel" type="Node2D"]
+script = ExtResource("1_d3n1p")
 
 [node name="GUI" type="Node2D" parent="."]
 visibility_layer = 8
 z_index = 2
 position = Vector2(1072, 60)
 scale = Vector2(1.3, 1.3)
-script = ExtResource("2_y5nmr")
+script = ExtResource("2_d3rq1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
 offset_right = 152.0
@@ -108,28 +111,28 @@ size_flags_vertical = 3
 
 [node name="Heart1" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("10_iiig6")
+texture = ExtResource("3_k3h1o")
 
 [node name="Heart2" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("10_iiig6")
+texture = ExtResource("3_k3h1o")
 
 [node name="Heart3" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("10_iiig6")
+texture = ExtResource("3_k3h1o")
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI"]
 position = Vector2(-52, 17)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("11_vbpd8")
+texture = ExtResource("4_a5ewf")
 
-[node name="Player" parent="." instance=ExtResource("1_f1vpl")]
+[node name="Player" parent="." instance=ExtResource("5_13n4t")]
 position = Vector2(132, 77)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BackGround" type="ParallaxBackground" parent="CanvasLayer"]
-script = ExtResource("2_7n65r")
+script = ExtResource("6_uomhe")
 
 [node name="BG_1" type="ParallaxLayer" parent="CanvasLayer/BackGround"]
 motion_scale = Vector2(0.9, 0)
@@ -137,18 +140,18 @@ motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/BackGround/BG_1"]
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("2_5iuy3")
+texture = ExtResource("7_fuab6")
 centered = false
 region_rect = Rect2(0, 0, 1280, 720)
 
 [node name="BG_2" type="ParallaxLayer" parent="CanvasLayer/BackGround"]
-motion_scale = Vector2(0.6, 0.6)
+motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/BackGround/BG_2"]
 visibility_layer = 8
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("4_kh2jx")
+texture = ExtResource("8_4c4s1")
 centered = false
 region_rect = Rect2(0, 0, 1280, 720)
 
@@ -158,56 +161,47 @@ motion_mirroring = Vector2(1280, 0)
 
 [node name="Sprite" type="Sprite2D" parent="CanvasLayer/BackGround/BG_3"]
 scale = Vector2(2.3, 2.3)
-texture = ExtResource("5_7j3lt")
+texture = ExtResource("9_24r5j")
 centered = false
 region_rect = Rect2(0, 0, 1280, 720)
 
-[node name="BulletSpawner" parent="." instance=ExtResource("7_xv6un")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1270, 345)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("10_rei3y")
+script = ExtResource("11_cwcr7")
+
+[node name="BigShip" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qlghi")
+}
+
+[node name="BulletSpawner" parent="." instance=ExtResource("10_4jrki")]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("8_33ppv")
+stream = ExtResource("11_162kv")
 volume_db = -4.837
 
-[node name="Boat" parent="." instance=ExtResource("9_07wjs")]
-position = Vector2(1011, 530)
-scale = Vector2(0.8, 0.8)
-
-[node name="moveBoat" type="AnimationPlayer" parent="Boat"]
-libraries = {
-"": SubResource("AnimationLibrary_hx7qm")
-}
-
 [node name="Scream" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_uymyc")
+stream = ExtResource("13_6yxbg")
 
 [node name="Scripter" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("14_dwmru")
+script = ExtResource("15_s0vy0")
 
-[node name="info1" type="Timer" parent="Scripter"]
+[node name="phase3" type="Timer" parent="Scripter"]
+wait_time = 30.0
 one_shot = true
 autostart = true
-
-[node name="phase2" type="Timer" parent="Scripter"]
-wait_time = 20.0
-one_shot = true
-
-[node name="badending" type="Timer" parent="Scripter"]
-wait_time = 25.0
-one_shot = true
-
-[node name="goodending" type="Timer" parent="Scripter"]
-wait_time = 35.0
-one_shot = true
 
 [node name="RetPeter" type="Sprite2D" parent="Scripter"]
 process_mode = 3
 modulate = Color(1, 1, 1, 0)
 position = Vector2(201, 291)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_vbpd8")
-script = ExtResource("15_8x8gq")
+texture = ExtResource("4_a5ewf")
+script = ExtResource("15_wq1e4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scripter/RetPeter"]
 libraries = {
@@ -219,10 +213,23 @@ process_mode = 3
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1052, 304)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_mnou5")
-script = ExtResource("15_4clsl")
+texture = ExtResource("16_vlsxj")
+script = ExtResource("17_tumgn")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Scripter/RetGarfio"]
+libraries = {
+"": SubResource("AnimationLibrary_gk5b7")
+}
+
+[node name="RetWendy" type="Sprite2D" parent="Scripter"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1052, 304)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_rgasb")
+script = ExtResource("18_ahkao")
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Scripter/RetWendy"]
 libraries = {
 "": SubResource("AnimationLibrary_gk5b7")
 }
@@ -232,11 +239,6 @@ libraries = {
 [connection signal="spawn_bullet_particles" from="Player" to="." method="_on_player_spawn_bullet_particles"]
 [connection signal="spawn_bullet" from="BulletSpawner" to="." method="_on_bullet_spawner_spawn_bullet"]
 [connection signal="badending" from="Scripter" to="." method="_on_scripter_badending"]
-[connection signal="escapeboat" from="Scripter" to="Boat" method="_on_scripter_escapeboat"]
-[connection signal="goodending" from="Scripter" to="." method="_on_scripter_goodending"]
 [connection signal="incvel" from="Scripter" to="." method="_on_scripter_incvel"]
 [connection signal="incvel" from="Scripter" to="BulletSpawner" method="_on_scripter_incvel"]
-[connection signal="timeout" from="Scripter/info1" to="Scripter" method="_on_info_1_timeout"]
-[connection signal="timeout" from="Scripter/phase2" to="Scripter" method="_on_phase_2_timeout"]
-[connection signal="timeout" from="Scripter/badending" to="Scripter" method="_on_badending_timeout"]
-[connection signal="timeout" from="Scripter/goodending" to="Scripter" method="_on_goodending_timeout"]
+[connection signal="timeout" from="Scripter/phase3" to="Scripter" method="_on_phase_3_timeout"]

@@ -1,7 +1,10 @@
 extends ParallaxBackground
 
-@export var speed: int
+var speed: int = 100
 var mov = 0
+
+func set_speed(inc: int) -> void:
+	speed = inc
 
 func _set_scroll_offset(offset: Vector2) -> void:
 	scroll_offset = offset

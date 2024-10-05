@@ -47,13 +47,11 @@ func _on_phase_2_timeout() -> void:
 	await(ChoiceScene.display_option("¿Aceleramos el ritmo?","Ir más rapido", "Mejor lento pero seguro"))
 	
 func on_option1():
-	await(ChoiceScene.display_text("Aceleremos el ritmo!!"))
+	await(ChoiceScene.display_text("¡¡Voy por ustedes chicos!!"))
 	await get_tree().create_timer(3.0).timeout
 	$RetPeter.hide_sprite()
 	get_tree().paused = false
 	await(ChoiceScene.hide_animation())
-	emit_signal("incvel")
-	$goodending.start()
 
 func on_option2():
 	await(ChoiceScene.display_text("Vale, sigamos sin prisas!!"))
@@ -99,3 +97,30 @@ func _on_goodending_timeout() -> void:
 	get_tree().paused = false
 	ChoiceScene.hide_animation()
 	emit_signal("goodending")
+
+func _on_phase_3_timeout() -> void:
+	get_tree().paused = true
+	$RetWendy.show_sprite()
+	await(ChoiceScene.show_animation())
+	await(ChoiceScene.display_text("¡¡Peter Ayudanos!!"))
+	await get_tree().create_timer(3.0).timeout
+	$RetWendy.hide_sprite()
+	$RetPeter.show_sprite()
+	await(ChoiceScene.display_text("¡¡Wendy!!"))
+	await get_tree().create_timer(3.0).timeout
+	await(ChoiceScene.display_text("¡¡Voy por ustedes!!"))
+	await get_tree().create_timer(3.0).timeout
+	$RetPeter.hide_sprite()
+	$RetGarfio.show_sprite()
+	await(ChoiceScene.display_text("Tendrás que pasar por encima mio si quieres escapar"))
+	await get_tree().create_timer(3.0).timeout
+	$RetGarfio.hide_sprite()
+	$RetWendy.show_sprite()
+	await(ChoiceScene.display_text("¡¡Ten cuidado Peter!!"))
+	await get_tree().create_timer(3.0).timeout
+	$RetWendy.hide_sprite()
+	$RetPeter.show_sprite()
+	await(ChoiceScene.display_text("Podría evadir la cubierta y salvarlos si hago un rodeo"))
+	await get_tree().create_timer(3.0).timeout
+	await(ChoiceScene.display_option("¿Que debería hacer?", "Salvar a los niños", "Enfrentarse a Garfio"))
+	await get_tree().create_timer(3.0).timeout

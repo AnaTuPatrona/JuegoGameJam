@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 
 
 func RecibirGolpe(area: Area2D) -> void:
-	if ((area.atacando_izq and (not atacando))) or  ((area.atacando_der) and (not atacando)):
-		print("Golpeado")
+	if ((area.atacando_izq and (not atacando))) or  ((area.atacando_der) and (not atacando) or area.atacando_cen):
 		perder_vida.emit()
 		vidas -= 1

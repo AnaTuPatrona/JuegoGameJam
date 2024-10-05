@@ -1,10 +1,49 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4fn2gwx15o1n"]
+[gd_scene load_steps=12 format=3 uid="uid://c4fn2gwx15o1n"]
 
 [ext_resource type="Script" path="res://juegoGatoConBotas/scenes/characters/Enemigo.gd" id="1_8ihu7"]
 [ext_resource type="Texture2D" uid="uid://c2jrqgb0uv8ml" path="res://JuegoGatoConBotas/assets/characters/Maton/MatonSpriteSheet.png" id="2_q8iof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmkx"]
 size = Vector2(113, 229)
+
+[sub_resource type="Animation" id="Animation_6ma33"]
+resource_name = "AtacarCentro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(620, 300), Vector2(620, 350)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jlcfp"]
 resource_name = "AtacarDer"
@@ -18,7 +57,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(770, 300), Vector2(770, 350)]
+"values": [Vector2(750, 300), Vector2(750, 350)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -31,6 +70,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_pa12x"]
@@ -45,7 +96,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(510, 300), Vector2(510, 350)]
+"values": [Vector2(490, 300), Vector2(490, 350)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -58,6 +109,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_35fea"]
@@ -73,7 +136,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(770, 300)]
+"values": [Vector2(750, 300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,6 +149,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8041h"]
@@ -100,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(510, 300)]
+"values": [Vector2(490, 300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -113,6 +188,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_f2dk2"]
@@ -139,11 +226,24 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(640, 300)]
+"values": [Vector2(620, 300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_4whsu"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,11 +266,24 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(640, 300)]
+"values": [Vector2(620, 300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lg08"]
 _data = {
+"AtacarCentro": SubResource("Animation_6ma33"),
 "AtacarDer": SubResource("Animation_jlcfp"),
 "AtacarIzq": SubResource("Animation_pa12x"),
 "MoverDer": SubResource("Animation_35fea"),
@@ -180,17 +293,18 @@ _data = {
 }
 
 [node name="Maton" type="Area2D"]
-position = Vector2(640, 300)
+position = Vector2(620, 300)
 script = ExtResource("1_8ihu7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(15, 0)
+position = Vector2(30, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_q8iof")
 hframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_oqmkx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

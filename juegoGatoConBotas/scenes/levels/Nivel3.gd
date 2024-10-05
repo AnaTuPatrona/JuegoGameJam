@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 		enemy.queue_free()
 
 func PerderVidaChar() -> void:
-	daño_enemy.position.x = enemy.position.x - 45
+	daño_enemy.position.x = enemy.position.x
 	daño_enemy.position.y = enemy.position.y +90
 	add_child(daño_enemy)
 	timer.start(0.5)

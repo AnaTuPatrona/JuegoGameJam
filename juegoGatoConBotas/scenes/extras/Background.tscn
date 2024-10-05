@@ -2,13 +2,20 @@
 
 [ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/extras/Background.gd" id="1_jg5ao"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idgss"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_frny0"]
 
-[node name="Background" type="StaticBody2D"]
-position = Vector2(668, 213)
+[node name="Background" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -672.0
+offset_top = -384.0
+offset_right = 672.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4, 1.4)
+texture = SubResource("CompressedTexture2D_frny0")
 script = ExtResource("1_jg5ao")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(30, 15)
-scale = Vector2(1.434, 1.445)
-texture = SubResource("CompressedTexture2D_idgss")

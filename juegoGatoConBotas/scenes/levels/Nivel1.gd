@@ -15,8 +15,20 @@ var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
 var daño_character = daño_character_scn.instantiate()
 var daño_enemy = daño_enemy_scn.instantiate()
 
+func _init() -> void:
+	ChoiceScene.opcion1.connect(_on_opcion1)
+	ChoiceScene.opcion2.connect(_on_opcion2)	
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = true
+	await ChoiceScene.show_animation()
+	ChoiceScene.display_text("Veo que traes un saco contigo")
+	await get_tree().create_timer(4).timeout
+	await crearPregunta("Que es lo que traes en el?","Conejos","Piedras")
+	await get_tree().create_timer(18).timeout
+	get_tree().paused = false
 	for i in range(character.vidas):
 		var corazon = corazon_scn.instantiate()
 		corazon.position.x = 50*(i+1)
@@ -29,23 +41,29 @@ func _ready() -> void:
 		corazon.position.y = 50
 		add_child(corazon)
 		corazones_enemy.append(corazon)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	print(character.vidas)
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#if accion:
 	if character == null:
-		loseScreen=GameOver.instantiate()
-		add_sibling(loseScreen)
-		loseScreen.activate()
+		#loseScreen=GameOver.instantiate()
+		#add_sibling(loseScreen)
+		#loseScreen.activate()
+		Transicion.game_over()
 		queue_free()
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
-		print("Ganaste")
 		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel2.tscn")
+		queue_free()
 	elif enemy.vidas == 0:
 		enemy.queue_free()
+	#elif !accion and enemy!=null:
+		#enemy.animation_player.play("RESET")
 
-
+func crearPregunta(pregunta: String, respuesta1: String, respuesta2: String)->void:
+	ChoiceScene.display_option(pregunta,respuesta1,respuesta2)
+	
 func PerderVidaChar() -> void:
 	print("Has perdido una vida")
 	daño_enemy.position.x = enemy.position.x - 45
@@ -53,7 +71,6 @@ func PerderVidaChar() -> void:
 	add_child(daño_enemy)
 	timer.start(0.5)
 	corazones_char[character.vidas-1].queue_free()
-
 
 func PerderVidaEnemy() -> void:
 	print("Enemigo perdio una vida")
@@ -63,7 +80,21 @@ func PerderVidaEnemy() -> void:
 	timer.start(0.5)
 	corazones_enemy[enemy.vidas-1].queue_free()
 
-
 func _on_timer_timeout() -> void:
 	remove_child(daño_character)
 	remove_child(daño_enemy)
+
+func _on_opcion1()->void:
+	ChoiceScene.display_text("Interesante, pero aun asi no es suficiente para mi")
+	await get_tree().create_timer(6).timeout
+	await ChoiceScene.display_text("Vas a tener que pelear para ganarte mi respeto")
+	await get_tree().create_timer(6).timeout
+	await(ChoiceScene.hide_animation())
+	character.vidas +=1
+	print(character.vidas)
+
+func _on_opcion2()->void:
+	ChoiceScene.display_text("JAJAJAJA crees que eso es suficiente para venir aqui y pedir respeto?")
+	await get_tree().create_timer(6).timeout
+	ChoiceScene.display_text("Estas muy equivocado!")
+	await(ChoiceScene.hide_animation())

@@ -11,13 +11,18 @@ script = ExtResource("1_eysf5")
 GameOver = ExtResource("2_40pln")
 
 [node name="Background" parent="." instance=ExtResource("2_a4ee5")]
-position = Vector2(538, 213)
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1480.0
+offset_bottom = 1107.0
 
 [node name="GatoConBotas" parent="." instance=ExtResource("4_ntj6c")]
 
 [node name="Ogro" parent="." instance=ExtResource("4_jcj3o")]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Sonido" type="AudioStreamPlayer" parent="."]
 
 [connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]
 [connection signal="perder_vida" from="Ogro" to="." method="PerderVidaEnemy"]

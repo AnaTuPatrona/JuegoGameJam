@@ -10,28 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://bxgiejhct7qlw" path="res://JuegoPeterPan/Scenes/bullet_spawner.tscn" id="7_xv6un"]
 [ext_resource type="AudioStream" uid="uid://73sq3sxicxf4" path="res://JuegoPeterPan/assets/music/windmill v2.mp3" id="8_33ppv"]
 [ext_resource type="PackedScene" uid="uid://cmpbtfd5s75ny" path="res://JuegoPeterPan/Scenes/boat.tscn" id="9_07wjs"]
-[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://juegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="10_iiig6"]
+[ext_resource type="Texture2D" uid="uid://batlo8ggu1l8n" path="res://JuegoGatoConBotas/assets/gui/heart pixel art 48x48.png" id="10_iiig6"]
 [ext_resource type="Texture2D" uid="uid://bqq7kuuu5ia4u" path="res://JuegoPeterPan/assets/Sprites/peter_pan_portrait-removebg.png" id="11_vbpd8"]
 [ext_resource type="AudioStream" uid="uid://hnuelt7hgn4g" path="res://general/assets_generales/scream.mp3" id="13_uymyc"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Scripter.gd" id="14_dwmru"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter.gd" id="15_4clsl"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter1.gd" id="15_8x8gq"]
 [ext_resource type="Texture2D" uid="uid://cmrtbmgf5q1bv" path="res://JuegoPeterPan/assets/Sprites/garfio_portrait-removebg-preview.png" id="16_mnou5"]
-
-[sub_resource type="Animation" id="Animation_qpgav"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_dkvvq"]
 length = 0.001
@@ -46,6 +31,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qpgav"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk5b7"]

@@ -15,8 +15,21 @@ var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
 var daño_character = daño_character_scn.instantiate()
 var daño_enemy = daño_enemy_scn.instantiate()
 
+var accion = false
+
+func _init() -> void:
+	ChoiceScene.opcion1.connect(_on_opcion1)
+	ChoiceScene.opcion2.connect(_on_opcion2)	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = true
+	await ChoiceScene.show_animation()
+	ChoiceScene.display_text("Te atreves a venir a desafiarme")
+	await get_tree().create_timer(4).timeout
+	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo, estas preparado?","Mas que nunca","A pelear")
+	await get_tree().create_timer(10).timeout
+	get_tree().paused = false
 	for i in range(character.vidas):
 		var corazon = corazon_scn.instantiate()
 		corazon.position.x = 50*(i+1)
@@ -33,25 +46,20 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if character == null:
-		loseScreen=GameOver.instantiate()
-		add_sibling(loseScreen)
-		loseScreen.activate()
+		#loseScreen=GameOver.instantiate()
+		#add_sibling(loseScreen)
+		#loseScreen.activate()
+		Transicion.game_over()
 		queue_free()
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
-		print("Ganaste")
-		#Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel1.tscn")
-		loseScreen=GameOver.instantiate()
-		add_sibling(loseScreen)
-		loseScreen.activate()
+		Transicion.cambiar_escena("res://Menu/Scenes/main_menu.tscn")
 		queue_free()
 	elif enemy.vidas == 0:
 		enemy.queue_free()
 
-
 func PerderVidaChar() -> void:
-	print("Has perdido una vida")
 	daño_enemy.position.x = enemy.position.x - 45
 	daño_enemy.position.y = enemy.position.y +90
 	add_child(daño_enemy)
@@ -60,7 +68,6 @@ func PerderVidaChar() -> void:
 
 
 func PerderVidaEnemy() -> void:
-	print("Enemigo perdio una vida")
 	daño_character.position.x = character.position.x + 90
 	daño_character.position.y = character.position.y -90
 	add_child(daño_character)
@@ -71,3 +78,21 @@ func PerderVidaEnemy() -> void:
 func _on_timer_timeout() -> void:
 	remove_child(daño_character)
 	remove_child(daño_enemy)
+
+func crearPregunta(pregunta: String, respuesta1: String, respuesta2: String)->void:
+	ChoiceScene.display_option(pregunta,respuesta1,respuesta2)
+	
+func _on_opcion1()->void:
+	ChoiceScene.display_text("Aghh")
+	$Sonido.stream=load("res://JuegoGatoConBotas/assets/characters/Ogro/OGRO.mp3")
+	$Sonido.play()
+	await get_tree().create_timer(7.5).timeout
+	$Sonido.stop()
+	await(ChoiceScene.hide_animation())
+
+func _on_opcion2()->void:
+	ChoiceScene.display_text("Ohh")
+	await get_tree().create_timer(2).timeout
+	ChoiceScene.display_text("Veo que te crees mucho")
+	await get_tree().create_timer(4).timeout
+	await(ChoiceScene.hide_animation())

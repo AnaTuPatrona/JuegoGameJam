@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbqvrhvvunj7m"
-path="res://.godot/imported/slash_02.png-be0d1b0a91de1c80804075f9cbec3649.ctex"
+path="res://.godot/imported/slash_02.png-6e00bfdf8581719439511848318a64b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://juegoGatoConBotas/assets/animations/slash_02.png"
-dest_files=["res://.godot/imported/slash_02.png-be0d1b0a91de1c80804075f9cbec3649.ctex"]
+source_file="res://JuegoGatoConBotas/assets/animations/slash_02.png"
+dest_files=["res://.godot/imported/slash_02.png-6e00bfdf8581719439511848318a64b8.ctex"]
 
 [params]
 

@@ -11,7 +11,6 @@ script = ExtResource("1_bh7aj")
 GameOver = ExtResource("2_py8ci")
 
 [node name="Background" parent="." instance=ExtResource("2_vi3m2")]
-position = Vector2(520, 177)
 
 [node name="Rey" parent="." instance=ExtResource("3_0bcre")]
 

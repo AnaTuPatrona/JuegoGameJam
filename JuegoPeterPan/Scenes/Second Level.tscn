@@ -195,6 +195,10 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
+[node name="badending2" type="Timer" parent="Scripter"]
+wait_time = 45.0
+one_shot = true
+
 [node name="RetPeter" type="Sprite2D" parent="Scripter"]
 process_mode = 3
 modulate = Color(1, 1, 1, 0)
@@ -241,4 +245,6 @@ libraries = {
 [connection signal="badending" from="Scripter" to="." method="_on_scripter_badending"]
 [connection signal="incvel" from="Scripter" to="." method="_on_scripter_incvel"]
 [connection signal="incvel" from="Scripter" to="BulletSpawner" method="_on_scripter_incvel"]
+[connection signal="incyvel" from="Scripter" to="." method="_on_scripter_incyvel"]
 [connection signal="timeout" from="Scripter/phase3" to="Scripter" method="_on_phase_3_timeout"]
+[connection signal="timeout" from="Scripter/badending2" to="Scripter" method="_on_badending_2_timeout"]

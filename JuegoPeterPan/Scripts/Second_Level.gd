@@ -6,6 +6,7 @@ func _ready() -> void:
 
 var rng = RandomNumberGenerator.new()
 var difvel: int = 200
+var difyvel: int = 0
 
 
 func _init() -> void:
@@ -18,6 +19,8 @@ func _process(delta: float) -> void:
 func _on_bullet_spawner_spawn_bullet(bullet: Variant, location: Variant) -> void:
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.speed = difvel
+	bullet_instance.yspeed = difyvel
+	bullet_instance.yspeed = bullet_instance.yspeed * (rng.randf_range(-5, 5))
 	add_child(bullet_instance)
 	bullet_instance.global_position = location
 
@@ -40,8 +43,12 @@ func _on_scripter_incvel() -> void:
 
 
 func _on_scripter_badending() -> void:
-	Transicion.game_over()
+	Transicion.cambiar_escena("res://JuegoPeterPan/Scenes/garfioscene1.tscn")
 
 
 func _on_scripter_goodending() -> void:
 	Transicion.cambiar_escena("res://JuegoPeterPan/Scenes/Second Level.tscn")
+
+
+func _on_scripter_incyvel() -> void:
+	difyvel = 2

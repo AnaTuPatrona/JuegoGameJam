@@ -22,15 +22,15 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
-		enemy.animation_player.play("Normal")
 	await ChoiceScene.show_animation()
 	get_tree().paused = true
 	ChoiceScene.display_text("Veo que el rey les ha brindado proteccion para ti y para tu amo")
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Crees que vas a poder vencerme?","Por supuesto","Vine en son de paz")
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(14).timeout
+	$Cancion.play_song()
 	gui()
+	enemy.iniciar()
 	
 func gui()->void:
 	for i in range(character.vidas):
@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
+		$Cancion.stop_song()
 		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel3.tscn")
 		queue_free()
 	elif enemy.vidas == 0:
@@ -90,7 +91,7 @@ func _on_opcion1()->void:
 	ChoiceScene.display_text("Pues eso esta por verse")
 	await get_tree().create_timer(6).timeout
 	ChoiceScene.display_text("Preparate!!")
-	await get_tree().create_timer(8).timeout
+	await get_tree().create_timer(6).timeout
 	await(ChoiceScene.hide_animation())
 	get_tree().paused = false
 	

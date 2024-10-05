@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://d302vbltunpu8"]
+[gd_scene load_steps=8 format=3 uid="uid://d302vbltunpu8"]
 
 [ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/levels/Nivel2.gd" id="1_kwceo"]
 [ext_resource type="PackedScene" uid="uid://bpd0rkacbjgnv" path="res://JuegoGatoConBotas/scenes/extras/Background.tscn" id="2_ogfjh"]
 [ext_resource type="PackedScene" uid="uid://cy7nqj5qd48ev" path="res://general/escenas_generales/gameover.tscn" id="2_v80xf"]
 [ext_resource type="PackedScene" uid="uid://duf5iiiqj3y84" path="res://JuegoGatoConBotas/scenes/characters/GatoConBotas.tscn" id="4_h76q8"]
 [ext_resource type="PackedScene" uid="uid://c4fn2gwx15o1n" path="res://JuegoGatoConBotas/scenes/characters/Maton.tscn" id="5_rbmn1"]
+[ext_resource type="AudioStream" uid="uid://cbfqk33twfs67" path="res://JuegoGatoConBotas/assets/songs/Green Forge Tavern - Cantina.mp3" id="6_8xyyy"]
+[ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/levels/Cancion.gd" id="7_ib7ce"]
 
 [node name="Nivel2" type="Node2D"]
 script = ExtResource("1_kwceo")
@@ -22,6 +24,11 @@ scale = Vector2(1, 1)
 [node name="GatoConBotas" parent="." instance=ExtResource("4_h76q8")]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[node name="Cancion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8xyyy")
+script = ExtResource("7_ib7ce")
 
 [connection signal="perder_vida" from="Maton" to="." method="PerderVidaEnemy"]
 [connection signal="perder_vida" from="GatoConBotas" to="." method="PerderVidaChar"]

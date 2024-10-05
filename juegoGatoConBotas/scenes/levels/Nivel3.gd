@@ -15,20 +15,22 @@ var corazones_enemy = Array([], TYPE_OBJECT, "Area2D", null)
 var daño_character = daño_character_scn.instantiate()
 var daño_enemy = daño_enemy_scn.instantiate()
 
+
 func _init() -> void:
 	ChoiceScene.opcion1.connect(_on_opcion1)
 	ChoiceScene.opcion2.connect(_on_opcion2)	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
-		enemy.animation_player.play("Normal")
 	await ChoiceScene.show_animation()
 	get_tree().paused = true
 	ChoiceScene.display_text("Te atreves a venir a desafiarme")
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo, estas preparado?","Mas que nunca","A pelear")
+	await get_tree().create_timer(10).timeout
+	$Cancion.play_song()
 	gui()
+	enemy.iniciar()
 	
 func gui()-> void:
 	for i in range(character.vidas):
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
+		$Cancion.stop_song()
 		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Final.tscn")
 		queue_free()
 	elif enemy.vidas == 0:
@@ -84,7 +87,6 @@ func crearPregunta(pregunta: String, respuesta1: String, respuesta2: String)->vo
 	
 func _on_opcion1()->void:
 	ChoiceScene.display_text("Aghh")
-	$Sonido.stream=load("res://JuegoGatoConBotas/assets/characters/Ogro/OGRO.mp3")
 	$Sonido.play()
 	await get_tree().create_timer(7.5).timeout
 	$Sonido.stop()

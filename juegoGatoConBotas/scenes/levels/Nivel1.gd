@@ -22,15 +22,15 @@ func _init() -> void:
 #var gui = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
-		enemy.animation_player.play("Normal")
-	get_tree().paused = true
 	await ChoiceScene.show_animation()
+	get_tree().paused = true
 	ChoiceScene.display_text("Veo que traes un saco contigo")
 	await get_tree().create_timer(4).timeout
 	await crearPregunta("Que es lo que traes en el?","Conejos","Piedras")
-	await get_tree().create_timer(18).timeout
+	await get_tree().create_timer(16).timeout
+	$Cancion.play_song()
 	gui()
+	enemy.iniciar()
 	
 func gui()->void:
 	for i in range(character.vidas):
@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 	elif character.vidas == 0:
 		character.queue_free()
 	if enemy == null:
+		$Cancion.stop_song()
 		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel2.tscn")
 		queue_free()
 	elif enemy.vidas == 0:

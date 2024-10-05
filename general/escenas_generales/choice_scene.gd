@@ -51,12 +51,11 @@ func display_optionV2(textin: String, options: Dictionary) -> void: #funcion par
 	button2.text = options.get(false)
 	_choiceDictionary=options
 	container.visible = true
+	box.visible=true
 	label.text = ("[center]" + textin + "[/center]")
 	anim.play("display_text")
-	await(anim.animation_finished)	
+	await(anim.animation_finished)
 
-func _buscarTrue(answer: String) -> bool:
-	return _choiceDictionary.find_key(answer)
 
 func _ready() -> void:
 	$CanvasLayer.layer=3
@@ -66,12 +65,10 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_opcion_1_pressed() -> bool: #emite señal para el botón 1 seleccionado
+func _on_opcion_1_pressed() -> void: #emite señal para el botón 1 seleccionado
 	emit_signal("opcion1")
-	return _buscarTrue($CanvasLayer/BoxContainer/VBoxContainer/HBoxContainer/opcion1.text)
 	
 
 
-func _on_opcion_2_pressed() -> bool: #emite señal para el botón 2 seleccionado
+func _on_opcion_2_pressed() -> void: #emite señal para el botón 2 seleccionado
 	emit_signal("opcion2")
-	return _buscarTrue($CanvasLayer/BoxContainer/VBoxContainer/HBoxContainer/opcion2.text)

@@ -7,6 +7,7 @@ var loseScreen
 
 signal musicPlaying()
 signal hasFailed()
+signal onNull
 
 var pos: Array=[]
 var _onPlay:bool=true #Guarda si se está reproduciendo la música
@@ -71,6 +72,7 @@ func _process(delta: float) -> void:
 		if (!$CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8<=0 && $RelojEliminar.is_stopped()):
 			_drecreaseAlpha(5.0)
 		elif($CanvasLayer/ContenedorNotas/PressionAreas.modulate.a8<=0):
+			await(onNull.emit())
 			queue_free()					
 	elif(!_gameOver):
 		_updateLifeBar(_decreaseSpeed) #va quitandole vida a la barra constantemente

@@ -14,25 +14,30 @@ var escene
 var choice
 @export var dialogBox: PackedScene #Acá se carga o el nodo de los textbox
 
-var contrincante
+var contrincante: Node
 @export var contrincantes:Array[PackedScene]
+
 
 #PREGUNTAS
 
 var _preguntas=["Rinrin Renacuajo, estás muy tieso y muy majo ¿Qué te dijo tu mamá cuando ibas a salir?",
-"Renacuajo, nos moríamos por oirte cantar ¿Por qué nos dejaste con la expectativa?",
+"Renacuajo, moría por oirte cantar ¿Por qué nos dejaste con la expectativa?",
 "Oiga, Ranito ¿Usted sabe quién soy yo?"]
 
 #RESPUESTAS
 
 var _respuestas=[{true: "Que no me fuera.", false: "Que no volviera."},
-{false: "Tengo miedo y hambre.", true: "Tengo sed y la ropa muy apretada."},
+{true: "Tengo sed y la ropa muy apretada.", false: "Tengo miedo y hambre."},
 {true: "El pato tragón.", false: "El pato dragón."}]
 
+signal sceneNull
+
+func _init() -> void:
+	ChoiceScene.opcion1.connect(_on_opcion1)
+	ChoiceScene.opcion2.connect(_on_opcion2)	
+
 func _ready() -> void:
-	#contrincante=_nivel3(false)
-	#$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
-	#ChoiceScene.set_questionV2(_preguntas[2],_respuestas[2])
+	_onNull()
 	pass
 	
 func _process(delta: float)->void:
@@ -43,9 +48,9 @@ func _process(delta: float)->void:
 		if(!escene.hasFailed.is_connected(_alFallar)):
 			escene.hasFailed.connect(_alFallar)
 	else:
-		_crearPregunta()
 		_byDefault()
-		#contrincante.playIdle()		
+		if(contrincante!=null):
+			contrincante.playIdle()		
 
 func _load_escene():
 	escene=overBackground.instantiate()
@@ -56,6 +61,8 @@ func _load_escene():
 	escene._inc=_increment
 	escene._dec=_decrement
 	$"CanvasLayer/ContenedorNivel".add_child(escene)
+	changeMusicId()
+	escene.onNull.connect(_onNull)
 
 func _crearPregunta():
 	ChoiceScene.set_questionV2(_preguntas[_musicId-1],_respuestas[_musicId-1])
@@ -116,26 +123,23 @@ func blindMode():
 	
 
 #GENERAR NIVELES
-func _nivel1(op:bool)->Node:
+func _nivel1(op:bool)->void:
 	if(op==true):
 		baseEscene()
 	else:
 		lifePunishment()	
-	return contrincantes[0].instantiate()
 	
-func _nivel2(op:bool)->Node:
+func _nivel2(op:bool)->void:
 	if(op==true):
 		risasYSonrisasMode()
 	else:
 		miedoYHambreMode()	
-	return contrincantes[1].instantiate()	
 	
-func _nivel3(op:bool)->Node:
+func _nivel3(op:bool)->void:
 	if(op==true):
 		inmortalMode()
 	else:
-		blindMode()	
-	return contrincantes[2].instantiate()		
+		blindMode()		
 
 func changeMusicId():
 	_musicId+=1
@@ -149,3 +153,30 @@ func _musicOnPlay():
 func _alFallar():
 	$"CanvasLayer/ContenedorNivel/Rinrin".playFail()
 	
+func _on_opcion1():
+	await(ChoiceScene.hide_animation())
+	if(_musicId==1):
+		_nivel1(true)
+	elif(_musicId==2):
+		_nivel2(true)
+	else:
+		_nivel3(true)					
+
+func _on_opcion2():
+	await(ChoiceScene.hide_animation())
+	if(_musicId==1):
+		_nivel1(false)
+	elif(_musicId==2):
+		_nivel2(false)
+	else:
+		_nivel3(false)			
+		
+func _onNull():
+	if(contrincante!=null):
+		$CanvasLayer/ContenedorNivel/Contrincante.remove_child(contrincante)
+	contrincante=contrincantes[_musicId-1].instantiate()
+	if(_musicId<4):
+		$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
+		_crearPregunta()
+	else:
+		pass	

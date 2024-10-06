@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ceca8xqvhuh1h"
-path="res://.godot/imported/Dragon Castle - Castillo.mp3-9169066edfc0826260c8fae349128f81.mp3str"
+path="res://.godot/imported/Dragon Castle - Castillo.mp3-e3f9f99fce33dd99444ee6872fa8a950.mp3str"
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/songs/Dragon Castle - Castillo.mp3"
-dest_files=["res://.godot/imported/Dragon Castle - Castillo.mp3-9169066edfc0826260c8fae349128f81.mp3str"]
+source_file="res://juegoGatoConBotas/assets/songs/Dragon Castle - Castillo.mp3"
+dest_files=["res://.godot/imported/Dragon Castle - Castillo.mp3-e3f9f99fce33dd99444ee6872fa8a950.mp3str"]
 
 [params]
 

@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 		character.queue_free()
 	if enemy == null:
 		$Cancion.stop_song()
-		Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/levels/Nivel2.tscn")
+		Transicion.cambiar_escena("res://juegoGatoConBotas/scenes/levels/Nivel2.tscn")
 		queue_free()
 	elif enemy.vidas == 0:
 		enemy.queue_free()

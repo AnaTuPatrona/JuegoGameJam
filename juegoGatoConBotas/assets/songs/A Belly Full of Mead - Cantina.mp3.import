@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bqwyvl1oilhor"
-path="res://.godot/imported/A Belly Full of Mead - Cantina.mp3-5ea592794c4acad48b3f3a56bb193611.mp3str"
+path="res://.godot/imported/A Belly Full of Mead - Cantina.mp3-cf8b98917a6fbfd2d2f18eec3577b074.mp3str"
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/songs/A Belly Full of Mead - Cantina.mp3"
-dest_files=["res://.godot/imported/A Belly Full of Mead - Cantina.mp3-5ea592794c4acad48b3f3a56bb193611.mp3str"]
+source_file="res://juegoGatoConBotas/assets/songs/A Belly Full of Mead - Cantina.mp3"
+dest_files=["res://.godot/imported/A Belly Full of Mead - Cantina.mp3-cf8b98917a6fbfd2d2f18eec3577b074.mp3str"]
 
 [params]
 

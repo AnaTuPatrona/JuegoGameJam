@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2jrqgb0uv8ml"
-path="res://.godot/imported/MatonSpriteSheet.png-147bd28e2fced9b650d6d37fccba693c.ctex"
+path="res://.godot/imported/MatonSpriteSheet.png-58705d1e8d9df0dda15828b53b246b17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/characters/Maton/MatonSpriteSheet.png"
-dest_files=["res://.godot/imported/MatonSpriteSheet.png-147bd28e2fced9b650d6d37fccba693c.ctex"]
+source_file="res://juegoGatoConBotas/assets/characters/Maton/MatonSpriteSheet.png"
+dest_files=["res://.godot/imported/MatonSpriteSheet.png-58705d1e8d9df0dda15828b53b246b17.ctex"]
 
 [params]
 

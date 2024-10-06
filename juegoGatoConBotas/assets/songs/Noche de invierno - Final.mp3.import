@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://clrny4eob32s6"
-path="res://.godot/imported/Noche de invierno - Final.mp3-cab9903156679c6a49ba2ae0e53a53f2.mp3str"
+path="res://.godot/imported/Noche de invierno - Final.mp3-a4622075a0755ad5f16038c3a4bd54c9.mp3str"
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/songs/Noche de invierno - Final.mp3"
-dest_files=["res://.godot/imported/Noche de invierno - Final.mp3-cab9903156679c6a49ba2ae0e53a53f2.mp3str"]
+source_file="res://juegoGatoConBotas/assets/songs/Noche de invierno - Final.mp3"
+dest_files=["res://.godot/imported/Noche de invierno - Final.mp3-a4622075a0755ad5f16038c3a4bd54c9.mp3str"]
 
 [params]
 

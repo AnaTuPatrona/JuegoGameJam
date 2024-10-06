@@ -1,8 +1,8 @@
 extends TextureRect
 
-var back_palacio = preload("res://JuegoGatoConBotas/assets/background/Palacio.webp")
-var back_cantina = preload("res://JuegoGatoConBotas/assets/background/Cantina.png")
-var back_ruinas =  preload("res://JuegoGatoConBotas/assets/background/Ruinas.png")
+var back_palacio = preload("res://juegoGatoConBotas/assets/background/Palacio.webp")
+var back_cantina = preload("res://juegoGatoConBotas/assets/background/Cantina.png")
+var back_ruinas =  preload("res://juegoGatoConBotas/assets/background/Ruinas.png")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if self.get_parent().name == "Nivel1":

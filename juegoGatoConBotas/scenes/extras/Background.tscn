@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpd0rkacbjgnv"]
 
-[ext_resource type="Script" path="res://JuegoGatoConBotas/scenes/extras/Background.gd" id="1_jg5ao"]
+[ext_resource type="Script" path="res://juegoGatoConBotas/scenes/extras/Background.gd" id="1_jg5ao"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_frny0"]
 

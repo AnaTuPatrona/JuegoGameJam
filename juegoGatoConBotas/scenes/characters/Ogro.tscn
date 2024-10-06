@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ck2jbim2wj2g5"]
 
 [ext_resource type="Script" path="res://juegoGatoConBotas/scenes/characters/Enemigo.gd" id="1_hb3f6"]
-[ext_resource type="Texture2D" uid="uid://cq1n7p7xsgmcj" path="res://JuegoGatoConBotas/assets/characters/Ogro/OgroSpriteSheet.png" id="2_wms2i"]
+[ext_resource type="Texture2D" uid="uid://cq1n7p7xsgmcj" path="res://juegoGatoConBotas/assets/characters/Ogro/OgroSpriteSheet.png" id="2_wms2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypba4"]
 size = Vector2(111, 229)

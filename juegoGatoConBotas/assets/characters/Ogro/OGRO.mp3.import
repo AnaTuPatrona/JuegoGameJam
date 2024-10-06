@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c7o7dum8xldb0"
-path="res://.godot/imported/OGRO.mp3-cfa60f0269bdd83a5132aa37793522a9.mp3str"
+path="res://.godot/imported/OGRO.mp3-68572418016f340cd7e6da155fc712a9.mp3str"
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/characters/Ogro/OGRO.mp3"
-dest_files=["res://.godot/imported/OGRO.mp3-cfa60f0269bdd83a5132aa37793522a9.mp3str"]
+source_file="res://juegoGatoConBotas/assets/characters/Ogro/OGRO.mp3"
+dest_files=["res://.godot/imported/OGRO.mp3-68572418016f340cd7e6da155fc712a9.mp3str"]
 
 [params]
 

@@ -21,7 +21,7 @@ func _on_libro_1_pressed() -> void:
 
 func _on_libro_3_pressed() -> void:
 	sound_selected.play()
-	Transicion.cambiar_escena("res://JuegoGatoConBotas/scenes/controles/Controles.tscn")
+	Transicion.cambiar_escena("res://juegoGatoConBotas/scenes/controles/Controles.tscn")
 
 
 func _on_libro_2_pressed() -> void:

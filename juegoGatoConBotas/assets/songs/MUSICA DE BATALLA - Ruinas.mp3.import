@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://snrn8r0lvltr"
-path="res://.godot/imported/MUSICA DE BATALLA - Ruinas.mp3-47382009e44c9fd67b0ddb30736e3b6d.mp3str"
+path="res://.godot/imported/MUSICA DE BATALLA - Ruinas.mp3-af98cb35909cff83837c835b75cc100f.mp3str"
 
 [deps]
 
-source_file="res://JuegoGatoConBotas/assets/songs/MUSICA DE BATALLA - Ruinas.mp3"
-dest_files=["res://.godot/imported/MUSICA DE BATALLA - Ruinas.mp3-47382009e44c9fd67b0ddb30736e3b6d.mp3str"]
+source_file="res://juegoGatoConBotas/assets/songs/MUSICA DE BATALLA - Ruinas.mp3"
+dest_files=["res://.godot/imported/MUSICA DE BATALLA - Ruinas.mp3-af98cb35909cff83837c835b75cc100f.mp3str"]
 
 [params]
 

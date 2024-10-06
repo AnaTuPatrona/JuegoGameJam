@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c4fn2gwx15o1n"]
 
 [ext_resource type="Script" path="res://juegoGatoConBotas/scenes/characters/Enemigo.gd" id="1_8ihu7"]
-[ext_resource type="Texture2D" uid="uid://c2jrqgb0uv8ml" path="res://JuegoGatoConBotas/assets/characters/Maton/MatonSpriteSheet.png" id="2_q8iof"]
+[ext_resource type="Texture2D" uid="uid://c2jrqgb0uv8ml" path="res://juegoGatoConBotas/assets/characters/Maton/MatonSpriteSheet.png" id="2_q8iof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqmkx"]
 size = Vector2(113, 229)

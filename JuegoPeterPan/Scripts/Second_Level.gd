@@ -52,3 +52,18 @@ func _on_scripter_goodending() -> void:
 
 func _on_scripter_incyvel() -> void:
 	difyvel = 2
+
+
+func _on_scripter_incvel_2() -> void:
+	difvel = 900
+	$CanvasLayer/BackGround.set_speed(300)
+	
+
+
+func _on_scripter_emotion() -> void:
+	$BgMusic.stop()
+	$BgMusic2.play()
+
+
+func _on_scripter_end() -> void:
+	Transicion.cambiar_escena("res://JuegoPeterPan/Scenes/goodending_2.tscn")

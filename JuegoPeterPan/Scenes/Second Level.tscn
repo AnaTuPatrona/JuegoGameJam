@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://da657l7b7x2d0"]
+[gd_scene load_steps=28 format=3 uid="uid://da657l7b7x2d0"]
 
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Second_Level.gd" id="1_d3n1p"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/gui.gd" id="2_d3rq1"]
@@ -14,12 +14,28 @@
 [ext_resource type="AudioStream" uid="uid://jkot6btno5rc" path="res://Menu/assets/Sounds/Ill Face Myself special ver.mp3" id="11_162kv"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/bigSHip.gd" id="11_cwcr7"]
 [ext_resource type="AudioStream" uid="uid://hnuelt7hgn4g" path="res://general/assets_generales/scream.mp3" id="13_6yxbg"]
+[ext_resource type="AudioStream" uid="uid://bj464jrmbgrck" path="res://JuegoPeterPan/assets/music/ill face myself2.mp3" id="14_h53yh"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/Scripter2.gd" id="15_s0vy0"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter1.gd" id="15_wq1e4"]
 [ext_resource type="Texture2D" uid="uid://cmrtbmgf5q1bv" path="res://JuegoPeterPan/assets/Sprites/garfio_portrait-removebg-preview.png" id="16_vlsxj"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_peter.gd" id="17_tumgn"]
 [ext_resource type="Script" path="res://JuegoPeterPan/Scripts/ret_wendy.gd" id="18_ahkao"]
 [ext_resource type="Texture2D" uid="uid://4san6m6dw2lq" path="res://JuegoPeterPan/assets/Sprites/wendy portrait.png" id="19_rgasb"]
+
+[sub_resource type="Animation" id="Animation_1tvpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1270, 345)]
+}
 
 [sub_resource type="Animation" id="Animation_qne16"]
 resource_name = "boat"
@@ -35,21 +51,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1270, 345), Vector2(665, 345)]
-}
-
-[sub_resource type="Animation" id="Animation_1tvpu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1270, 345)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlghi"]
@@ -183,6 +184,10 @@ process_mode = 3
 stream = ExtResource("11_162kv")
 volume_db = -4.837
 
+[node name="BgMusic2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("14_h53yh")
+
 [node name="Scream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_6yxbg")
 
@@ -197,6 +202,14 @@ autostart = true
 
 [node name="badending2" type="Timer" parent="Scripter"]
 wait_time = 45.0
+one_shot = true
+
+[node name="info2" type="Timer" parent="Scripter"]
+wait_time = 30.0
+one_shot = true
+
+[node name="truending" type="Timer" parent="Scripter"]
+wait_time = 30.0
 one_shot = true
 
 [node name="RetPeter" type="Sprite2D" parent="Scripter"]
@@ -243,8 +256,13 @@ libraries = {
 [connection signal="spawn_bullet_particles" from="Player" to="." method="_on_player_spawn_bullet_particles"]
 [connection signal="spawn_bullet" from="BulletSpawner" to="." method="_on_bullet_spawner_spawn_bullet"]
 [connection signal="badending" from="Scripter" to="." method="_on_scripter_badending"]
+[connection signal="emotion" from="Scripter" to="." method="_on_scripter_emotion"]
+[connection signal="end" from="Scripter" to="." method="_on_scripter_end"]
 [connection signal="incvel" from="Scripter" to="." method="_on_scripter_incvel"]
 [connection signal="incvel" from="Scripter" to="BulletSpawner" method="_on_scripter_incvel"]
+[connection signal="incvel2" from="Scripter" to="." method="_on_scripter_incvel_2"]
 [connection signal="incyvel" from="Scripter" to="." method="_on_scripter_incyvel"]
 [connection signal="timeout" from="Scripter/phase3" to="Scripter" method="_on_phase_3_timeout"]
 [connection signal="timeout" from="Scripter/badending2" to="Scripter" method="_on_badending_2_timeout"]
+[connection signal="timeout" from="Scripter/info2" to="Scripter" method="_on_info_2_timeout"]
+[connection signal="timeout" from="Scripter/truending" to="Scripter" method="_on_truending_timeout"]

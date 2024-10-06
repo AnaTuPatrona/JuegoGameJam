@@ -8,7 +8,9 @@ signal badending
 signal escapeboat
 signal goodending
 signal incyvel
-
+signal incvel2
+signal end
+signal emotion
 
 var phase = 0
 
@@ -59,13 +61,14 @@ func on_option1():
 	
 
 func on_option2():
-	await(ChoiceScene.display_text("Vale, sigamos sin prisas!!"))
+	await(ChoiceScene.display_text("¡¡No te saldrás con la tuya Garfio!!"))
 	await get_tree().create_timer(3.0).timeout
 	$RetPeter.hide_sprite()
 	get_tree().paused = false
 	await(ChoiceScene.hide_animation())
-	$badending.start()
-	emit_signal("escapeboat")
+	emit_signal("incyvel")
+	emit_signal("emotion")
+	$info2.start()
 
 
 func _on_badending_timeout() -> void:
@@ -152,3 +155,36 @@ func _on_badending_2_timeout() -> void:
 	get_tree().paused = false
 	emit_signal("badending")
 	await(ChoiceScene.hide_animation())
+
+
+func _on_info_2_timeout() -> void:
+	get_tree().paused = true
+	$RetGarfio.show_sprite()
+	await(ChoiceScene.show_animation())
+	await(ChoiceScene.display_text("¡¡Fuego a discresión!!"))
+	await get_tree().create_timer(3.0).timeout
+	await(ChoiceScene.display_text("¡¡Descarguen todo lo que tengan contra esa sabandija!!"))
+	await get_tree().create_timer(3.0).timeout
+	$RetGarfio.hide_sprite()
+	$RetPeter.show_sprite()
+	await(ChoiceScene.display_text("No nos vamos a rendir tan facil"))
+	await get_tree().create_timer(3.0).timeout
+	get_tree().paused = false
+	emit_signal("incvel2")
+	$RetPeter.hide_sprite()
+	await(ChoiceScene.hide_animation())
+	$truending.start()
+
+func _on_truending_timeout() -> void:
+	get_tree().paused = true
+	$RetPeter.show_sprite()
+	await(ChoiceScene.show_animation())
+	await(ChoiceScene.display_text("¡¡Te atrapamos Garfio!! ¡¡No te Saldrás con la tuya!!"))
+	await get_tree().create_timer(3.0).timeout
+	await(ChoiceScene.display_text("¡¡Vete y no regreses jamás!!"))
+	await get_tree().create_timer(3.0).timeout
+	$RetPeter.hide_sprite()
+	get_tree().paused = false
+	emit_signal("end")
+	await(ChoiceScene.hide_animation())
+	

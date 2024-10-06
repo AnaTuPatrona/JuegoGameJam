@@ -2,7 +2,7 @@ extends Node2D
 
 var _decreaseSpeed:float=-0.15
 var _cooldown:float=0.48
-var _musicId:float=4
+var _musicId:float=1
 
 var _velocity:float=260
 var _increment:float=10.2

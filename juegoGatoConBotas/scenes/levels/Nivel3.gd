@@ -24,9 +24,9 @@ func _init() -> void:
 func _ready() -> void:
 	await ChoiceScene.show_animation()
 	get_tree().paused = true
-	ChoiceScene.display_text("Te atreves a venir a desafiarme")
+	ChoiceScene.display_text("¿Te atreves a venir a desafiarme?")
 	await get_tree().create_timer(4).timeout
-	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo, estas preparado?","Mas que nunca","A pelear")
+	await crearPregunta("Si me vences, este reino sera tuyo y de tu amo ¿estás preparado?","Más que nunca.","A pelear.")
 	await get_tree().create_timer(10).timeout
 	gui()
 	enemy.iniciar()

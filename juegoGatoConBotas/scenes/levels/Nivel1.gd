@@ -24,9 +24,9 @@ func _init() -> void:
 func _ready() -> void:
 	await ChoiceScene.show_animation()
 	get_tree().paused = true
-	ChoiceScene.display_text("Veo que traes un saco contigo")
+	ChoiceScene.display_text("Veo que traes un saco contigo.")
 	await get_tree().create_timer(4).timeout
-	await crearPregunta("Que es lo que traes en el?","Conejos","Piedras")
+	await crearPregunta("¿Qué es lo que traes en él?","Conejos.","Piedras.")
 	await get_tree().create_timer(16).timeout
 	$Cancion.play_song()
 	gui()

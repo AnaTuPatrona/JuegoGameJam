@@ -24,9 +24,9 @@ func _init() -> void:
 func _ready() -> void:
 	await ChoiceScene.show_animation()
 	get_tree().paused = true
-	ChoiceScene.display_text("Veo que el rey les ha brindado proteccion para ti y para tu amo")
+	ChoiceScene.display_text("Veo que el rey les ha brindado protección para ti y para tu amo.")
 	await get_tree().create_timer(4).timeout
-	await crearPregunta("Crees que vas a poder vencerme?","Por supuesto","Vine en son de paz")
+	await crearPregunta("¿Crees que vas a poder vencerme?","Por supuesto.","Vine en son de paz.")
 	await get_tree().create_timer(14).timeout
 	$Cancion.play_song()
 	gui()

@@ -2,7 +2,7 @@ extends Node2D
 
 var _decreaseSpeed:float=-0.15
 var _cooldown:float=0.48
-var _musicId:float=1
+var _musicId:float=4
 
 var _velocity:float=260
 var _increment:float=10.2
@@ -179,9 +179,11 @@ func _onNull():
 		$CanvasLayer/ContenedorNivel/Contrincante.add_child(contrincante)
 		_crearPregunta()
 	else:
-		ChoiceScene.show_animation()
-		ChoiceScene.display_text("Despues del baile, Renacuajo ganó una victoria formidable. Así, Rinrin Renacuajo volvió a su casa saltando.")
-		await get_tree().create_timer(3.2).timeout
+		await(ChoiceScene.show_animation())
+		ChoiceScene.display_text("Despues del baile, Renacuajo ganó una victoria formidable.")
+		await get_tree().create_timer(3.0).timeout
+		ChoiceScene.display_text("Así, Rinrin Renacuajo volvió a su casa cantando y saltando.")
+		await get_tree().create_timer(3.0).timeout				
 		await(ChoiceScene.hide_animation())
 		Transicion.cambiar_escena("res://Menu/Scenes/main_menu.tscn")
 		queue_free()

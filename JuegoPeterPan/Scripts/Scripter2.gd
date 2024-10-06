@@ -26,9 +26,9 @@ func _on_info_1_timeout() -> void:
 	get_tree().paused = true
 	$RetPeter.show_sprite()
 	await(ChoiceScene.show_animation())
-	await(ChoiceScene.display_text("El capitan Garfio capturo a Wendy y los niños!!"))
+	await(ChoiceScene.display_text("¡El Capitan Garfio capturó a Wendy y los niños!"))
 	await get_tree().create_timer(5.0).timeout
-	await(ChoiceScene.display_text("Ayudame a rescatarlos usando el puntero de tu mouse!! yo te sigo!!"))
+	await(ChoiceScene.display_text("Ayúdame a rescatarlos usando el puntero de tu mouse!! yo te sigo!!"))
 	await get_tree().create_timer(5.0).timeout
 	await(ChoiceScene.display_text("Evita las balas de cañon del capitan Garfio o estaremos perdidos!!"))
 	await get_tree().create_timer(5.0).timeout
@@ -110,7 +110,7 @@ func _on_phase_3_timeout() -> void:
 	get_tree().paused = true
 	$RetWendy.show_sprite()
 	await(ChoiceScene.show_animation())
-	await(ChoiceScene.display_text("¡¡Peter Ayudanos!!"))
+	await(ChoiceScene.display_text("¡¡Peter, ayúdanos!!"))
 	await get_tree().create_timer(3.0).timeout
 	$RetWendy.hide_sprite()
 	$RetPeter.show_sprite()
@@ -120,17 +120,17 @@ func _on_phase_3_timeout() -> void:
 	await get_tree().create_timer(3.0).timeout
 	$RetPeter.hide_sprite()
 	$RetGarfio.show_sprite()
-	await(ChoiceScene.display_text("Tendrás que pasar por encima mio si quieres escapar"))
+	await(ChoiceScene.display_text("Tendrás que pasar por encima mio si quieres escapar."))
 	await get_tree().create_timer(3.0).timeout
 	$RetGarfio.hide_sprite()
 	$RetWendy.show_sprite()
-	await(ChoiceScene.display_text("¡¡Ten cuidado Peter!!"))
+	await(ChoiceScene.display_text("¡¡Ten cuidado, Peter!!"))
 	await get_tree().create_timer(3.0).timeout
 	$RetWendy.hide_sprite()
 	$RetPeter.show_sprite()
-	await(ChoiceScene.display_text("Podría evadir la cubierta y salvarlos si hago un rodeo"))
+	await(ChoiceScene.display_text("Podría evadir la cubierta y salvarlos si hago un rodeo."))
 	await get_tree().create_timer(3.0).timeout
-	await(ChoiceScene.display_option("¿Que debería hacer?", "Salvar a los niños", "Enfrentarse a Garfio"))
+	await(ChoiceScene.display_option("¿Qué debería hacer?", "Salvar a los niños.", "Enfrentarse a Garfio."))
 	await get_tree().create_timer(3.0).timeout
 
 
